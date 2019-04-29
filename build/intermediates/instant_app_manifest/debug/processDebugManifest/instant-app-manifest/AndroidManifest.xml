@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.saltechdigital.dliver"
+    android:targetSandboxVersion="2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="28" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS"
+        android:maxSdkVersion="22" />
+    <uses-permission
+        android:name="android.permission.MANAGE_ACCOUNTS"
+        android:maxSdkVersion="22" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+
+    <application
+        android:name="com.saltechdigital.dliver.Application"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcherer"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcherer_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name="com.saltechdigital.dliver.TrackLocationActivity"
+            android:label="@string/title_activity_track_location"
+            android:parentActivityName="com.saltechdigital.dliver.OrderActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.OrderActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.ValidLivraisonActivity"
+            android:label="@string/valid_label"
+            android:parentActivityName="com.saltechdigital.dliver.OrderActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.OrderActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.DeliverLocationActivity"
+            android:label="@string/title_activity_deliver_location"
+            android:parentActivityName="com.saltechdigital.dliver.OrderActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.OrderActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.TimeLineActivityJ"
+            android:parentActivityName="com.saltechdigital.dliver.OrderActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.OrderActivity" />
+        </activity>
+        <activity android:name="com.saltechdigital.dliver.TimeLineActivity" />
+        <activity
+            android:name="com.saltechdigital.dliver.ViewLivraisonListActivity"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.saltechdigital.dliver.ProfileActivity"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.BillActivity"
+            android:label="@string/payments"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.OrderActivity"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.AboutActivity"
+            android:label="@string/about"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.NotificationActivity"
+            android:label="@string/menu_notifications"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.PaymentWayActivity"
+            android:label="@string/payment_way_title"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.SavedAddressActivity"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.LocationActivity"
+            android:label="@string/title_activity_location" >
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.CreateLivraisonActivity"
+            android:label="@string/title_activity_create_livraison"
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PrincipaleActivity" />
+        </activity>
+        <activity
+            android:name="com.saltechdigital.dliver.PrincipaleActivity"
+            android:label="@string/title_activity_principale"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.saltechdigital.dliver.ConnexionActivity" />
+        <activity
+            android:name="com.saltechdigital.dliver.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name="com.saltechdigital.dliver.InscriptionActivity" />
+        <activity
+            android:name="com.saltechdigital.dliver.VerificationActivity"
+            android:label="@string/title_activity_verification"
+            android:parentActivityName="com.saltechdigital.dliver.CheckAuthActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.dliver.CheckAuthActivity" />
+        </activity>
+        <activity android:name="com.saltechdigital.dliver.CheckAuthActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.saltechdigital.dliver.IntroActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="com.saltechdigital.dliver.contentProvider.PlacesSuggestionProvider"
+            android:authorities="com.example.google.places.search_suggestion_provider"
+            android:syncable="false" />
+
+        <service
+            android:name="com.saltechdigital.dliver.tasks.AccountTypeService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+        <service android:name="com.saltechdigital.dliver.tasks.NotificationService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- Autocomplete -->
+        <activity
+            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:label="@string/places_autocomplete_label"
+            android:theme="@style/PlacesAutocompleteThemeOverlay"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustPan" >
+        </activity> <!-- Needs to be explicitly declared on P+ -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
+        <!--
+             FirebaseMessagingService performs security checks at runtime,
+             but set to not exported to explicitly avoid allowing another app to call it.
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <!--
+             FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.saltechdigital.dliver.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <activity
+            android:name="com.fxn.pix.Pix"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
+            android:exported="false"
+            android:label=""
+            android:theme="@style/EasyPermissions.Transparent" />
+
+        <provider
+            android:name="com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.saltechdigital.dliver.com.android.tools.ir.server.InstantRunContentProvider"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>

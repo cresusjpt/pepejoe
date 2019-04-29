@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <stroke
+                android:width="1dp"
+                android:color="@color/colorAccent"/>
+            <solid android:color="@color/colorAccent" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+    <!--<item>
+        <bitmap
+            android:tileMode="disabled"
+            android:drawable="@drawable/baseline_arrow_forward_white_24"
+            android:src="@drawable/baseline_arrow_forward_white_24"
+            android:gravity="center">
+        </bitmap>
+        &lt;!&ndash;The drawable attribute is not necessary&ndash;&gt;
+    </item>-->
+</layer-list>

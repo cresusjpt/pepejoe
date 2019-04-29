@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "704609581346",
+    "firebase_url": "https://dliver-f6dfc.firebaseio.com",
+    "project_id": "dliver-f6dfc",
+    "storage_bucket": "dliver-f6dfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704609581346:android:3ac13871cb116066",
+        "android_client_info": {
+          "package_name": "com.saltechdigital.dliver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704609581346-ob7vlun9c6j1kk4aan2rb15ji6it3a5u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.saltechdigital.dliver",
+            "certificate_hash": "c68eff4a78811f213db0b7cd30dc01c9fcb3cefc"
+          }
+        },
+        {
+          "client_id": "704609581346-btr4ndi88vujr6cs6ipbfqaarhg4af3r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSMvrmZ265-WcNig39EJ3r9e-wIzry1A8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704609581346-btr4ndi88vujr6cs6ipbfqaarhg4af3r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

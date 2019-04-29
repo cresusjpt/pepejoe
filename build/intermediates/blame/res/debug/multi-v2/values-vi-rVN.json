@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "F:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi-rVN\\values-vi-rVN.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-1\\files-1.1\\AppIntro-v5.1.0.aar\\a176af78f0c92bcffededf36e138a4dc\\res\\values-vi-rVN\\values-vi-rVN.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,116",
+                        "endColumns": "60,56",
+                        "endOffsets": "111,168"
+                    }
+                }
+            ]
+        }
+    ]
+}

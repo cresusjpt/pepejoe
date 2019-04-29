@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Coupon Preferences"/>
+    <CheckBoxPreference
+        android:key="viewCashbackOffers"
+        android:summary="Show Latest Cashback Offers"
+        android:title="Cashback Offers"/>
+    <CheckBoxPreference
+        android:key="viewCoupons"
+        android:summary="Show Latest Coupons"
+        android:title="Coupon Offers"/>
+    <CheckBoxPreference
+        android:key="viewDeals"
+        android:summary="Show Latest Deals"
+        android:title="Deals Offers"/>
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="offerEmail"
+        android:title="Send Offer Email"/>
+</PreferenceScreen>

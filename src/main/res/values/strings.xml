@@ -1,0 +1,320 @@
+<resources>
+    <string name="app_name">D-Liver</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="title_activity_principal">D-Liver</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_verification"></string>
+    <string name="invalid_phone_number">Ce numero de télephone n\'est pas valide.</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_name">Nom et prénom</string>
+    <string name="prompt_address">Adresse</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="prompt_password_confirm">Confirmer le mot de passe</string>
+    <string name="prompt_connect">Se conneceter</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">Adresse email invalide</string>
+    <string name="error_invalid_password">Le mot de passe est trop court</string>
+    <string name="error_invalid_name">Le nom et prénom est trop court</string>
+    <string name="error_incorrect_password">Le mot de passe est incorrecte</string>
+    <string name="error_notSame_password">Les mots de passe ne sont pas identiques</string>
+    <string name="error_field_required">Champs obligatoire</string>
+    <string name="all_permissions">D-Liver a besoin de quelques permissions pour fonctionner correctement</string>
+    <string name="permission_rationale">"Les permissions pour lire les contacts sont nécessaire pour l'autocompletion des emails."</string><!--Contacts permissions are needed for providing email completions-->
+    <string name="title_activity_principale">D-Liver</string>
+    <string name="title_activity_create_livraison">Nouvelle livraison</string>
+    <string name="not_connected">Aucune connexion internet. Veuillez réesayer ultérieurement</string>
+    <string name="connection_error">Une erreur s\'est produite. Veuillez réessayer ultérieurement</string>
+    <string name="connection_failed">La connexion à échouée. Veuillez réessayer ultérieurement</string>
+    <string name="action_save_livraison">Enregistrer</string>
+    <string name="colis_name">Nom du colis</string>
+    <string name="your_order">Votre commande</string>
+    <string name="colis_description">Description (optionnel)</string>
+    <string name="colis_valeur">Valeur de votre commande (en FCFA)</string>
+    <string name="loc_chargement">Adresse de collecte</string>
+    <string name="loc_destination">Adresse de livraison</string>
+    <string name="expedit_name">Nom de l\'expediteur</string>
+    <string name="expedit_adresse">Adresse de l\'expediteur</string>
+    <string name="destin_name">Nom du destinataire</string>
+    <string name="destin_adresse">Adresse du destinataire</string>
+    <string name="header_colis">Informations du colis</string>
+    <string name="header_location">Localisations</string>
+    <string name="header_expediteur">Je suis l\'expediteur ?</string>
+    <string name="header_destinataire">Destinataire</string>
+    <string name="rb_yes">Oui</string>
+    <string name="rb_no">Non</string>
+    <string name="scan_failed">Le scan a échoué. Veuillez réessayer ultérieurement</string>
+    <string name="scan_title">Scanner de Code barre</string>
+    <string name="ok">OK</string>
+    <string name="abort_changes">Annuler les changements ?</string>
+    <string name="abort_changes_text">Voulez-vous vraiment annuler les changements ?</string>
+    <string name="search_hint">Rechercher</string>
+    <string name="pick_location">Veuillez selectionner un emplacement</string>
+    <string name="location_same">Les deux localisations sont les mêmes</string>
+    <string name="loading">Chargement</string>
+    <string name="photo_added">%d photos ajoutées</string>
+    <string name="transaction_price">Prix de la course</string>
+    <string name="transaction_message">Le montant de la course est de : %1$s FCFA</string>
+
+    <!--Pix String-->
+    <string name="selection_limiter_pix">Vous ne pouvez pas sélectionner plus de %d éléments.</string>
+    <string name="message_to_drag_up">Faites glisser les images vers le haut pour la galerie</string>
+    <string name="pix_ok">OK</string>
+    <string name="pix_tap_to_select">Appuyez sur la photo pour sélectionner</string>
+    <string name="pix_selected">Choisi</string>
+    <string name="pix_recent">Récent</string>
+    <string name="pix_last_month">Le mois dernier</string>
+    <string name="pix_last_week">La semaine dernière</string>
+    <string name="title_activity_location">Map</string>
+
+    <!--Just for test-->
+    <string name="default_info_title">Emplacement par défaut</string>
+    <string name="default_info_snippet">No places found, because location permission is disabled.</string>
+    <string name="pick_place">Choisissez un lieu</string>
+
+    <string name="menu_my_details"><b>MES DETAILS</b></string>
+    <string name="menu_orders">Commandes</string>
+    <string name="menu_saved_address">Adresses Enrégistrées</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="logout">Deconnexion</string>
+    <string name="about">A propos</string>
+    <string name="menu_profile">Mes informations</string>
+    <string name="menu_other"><b>AUTRES</b></string>
+    <string name="payments">Paiements</string>
+    <string name="menu_payment">Moyens de paiement</string>
+    <string name="settings">Paramètres</string>
+    <string name="add_address">Ajouter une nouvelle adresse</string>
+    <string name="add_phone">Ajouter un numero de téléphone</string>
+    <string name="edit">Modifier</string>
+    <string name="delete">Supprimer</string>
+    <string name="bt_default">Défaut</string>
+    <string name="saved_address_title">Sélectionner une adresse</string>
+
+    <string name="positive_button">OK</string>
+    <string name="negative_button">Annuler</string>
+
+    <string name="delete_address_title">Supprimer Adresse</string>
+    <string name="delete_address_message">Voulez vous vraiment supprimer cette addresse ?</string>
+
+    <string name="add_payment_way">Ajouter un moyen de paiement</string>
+    <string name="payment_way_title">Gérer les moyens de paiements</string>
+    <string name="account_type" translatable="false">com.saltechdigital.deliver</string>
+
+    <string name="account_manager_error">Vous avez déjà un compte</string>
+    <string name="cvc">CVC</string>
+    <string name="card_number_hint">Numero de la carte</string>
+    <string name="card_hint_expire">Expiration</string>
+    <string name="bank_card_owner">Nom du Titulaire de la carte</string>
+    <string name="mobile_money_name">Nom du moyen de paiment (optionnel)</string>
+    <string name="phone_number">Numero de télephone</string>
+
+    <string-array name="payment_way">
+        <item>Carte bancaire</item>
+        <item>Flooz</item>
+        <item>TMoney</item>
+    </string-array>
+
+    <string-array name="payment_way_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string name="title_activity_settings">Paramètres</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+    <string name="pharmacy">Pharmacie</string>
+    <string name="market">Marché</string>
+    <string name="repas">Repas</string>
+    <string name="boisson">Apéro</string>
+    <string name="coursier">Coursier</string>
+    <string name="autre">Magic</string>
+
+    <string name="pending_order_title">En cours</string>
+    <string name="completed_order_title">Terminé</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="pharmacy_tag">Médicament sans ordonnance uniquement. Avant de prendre un médicamen, lisez attentivement la notice et consultez votre pharmacien. Nous ne serons pas tenu responsable de l\'usage que vous ferez des prduits disponible</string>
+    <string name="coursier_tag">Nous collectons et livrons des courriers ou les produits disponibles dans votre ville. Si vous souhaitez acheter un produit, vous pouvez utilisez "Magic"</string>
+
+    <string name="special_demande">Demande spéciale ?</string>
+    <string name="large_text">
+        "<b>D-Liver</b> L\'application qui facilite vos courses.\n\n"
+
+        "Vous avez envie de manger votre repas préferé dans un restaurant loin de chez vous ? \n"
+        "Vous êtes en route pour le bureau mais avez oublié votre trousseau de clés à la maison ? \n"
+        "Besoin de faire des courses pour la maison mais vous êtes coincés au bureau ? \n"
+        "Vous avez besoin de produits pharmaceutiques à n\'importe quelle heure de la journée ?.\n"
+        "Vous êtes une entreprise et avez besoin de faire livrer vos courriers à moindres coûts ? \n"
+        "Vous avez besoin d\'envoyer des colis à la famille dans une autre ville ? \n\n"
+        "Plus de soucis à vous faire <b>D-Liver</b> vous facilite la vie. \n\n"
+
+        "Conditions générale d\'utilisation.\n"
+         "https://github.com/cresusjpt/ \n\n"
+
+        "Conditions générale de vente.\n"
+         https://github.com/cresusjpt/ \n\n
+
+        "<b><u>CREDITS:</u></b>.\n"
+        https://www.bouncycastle.org\n(The MIT License (MIT))
+        \n\nhttps://www.firebase.google.com
+        \n\nhttps://www.gnu.org/software/libidn\n(Apache License, Version 2.0)
+        \n\nhttps://github.com/ge0rg/MemorizingTrustManager\n(The MIT License (MIT))
+        \n\nhttps://github.com/rtreffer/minidns\n(WTFPL)
+        \n\nhttps://github.com/open-keychain/openkeychain-api-lib\n(Apache License, Version 2.0)
+        \n\nhttps://github.com/jitsi/otr4j\n(LGPL-3.0)
+        \n\nhttps://developer.android.com/tools/support-library\n(Apache License, Version 2.0)
+        \n\nhttps://github.com/zxing/zxing\n(Apache License, Version 2.0)
+        \n\nhttps://github.com/google/material-design-icons\n(CC BY 4.0)
+        \n\nhttps://github.com/timroes/EnhancedListView\n(Apache License, Version 2.0)
+        \n\nhttps://github.com/leolin310148/ShortcutBadger\n(Apache License, Version 2.0)
+        \n\nhttps://github.com/kyleduo/SwitchButton\n(Apache License, Version 2.0)
+        \n\nhttps://github.com/WhisperSystems/libaxolotl-java\n(GPLv3)
+        \n\nhttps://github.com/vinc3m1/RoundedImageView\n(Apache License, Version 2.0)
+        \n\nhttps://github.com/jdamcd/android-crop\n(Apache License, Version 2.0)
+        \n\nhttps://github.com/hbb20/CountryCodePickerProjectp\n(Apache License, Version 2.0)
+    </string>
+    <string name="pref_about_message" translatable="false">
+			<b>D-liver</b> • une application ingénieuse dans le monde de la méssagerie instantanée.
+			\n\nCopyright © 2016-2018 Jeanpaul Tossou Togo.
+			\n\nLe programme est pensé pour permettre une meilleure communication entre les différents acteurs
+            principaux de L\'Institut Africain d\'informatique des différentes représentation de même que le siège.
+			L\'idée est de fournir une plateforme <b>très sécurisée</b> avec une communication chiffrée,
+            entre les étudiants et l\'administration d\'une part et les anciens éudiants d\'autres part.
+            S\'il permet en bonus de franchir plus aisement les frontières entre le siège et les
+            représentations alors les objectifs seraient plus qu\'atteints.
+			\n\nCe programme est distribué dans l\'espoir d\'une vraie utilité,
+			et n\'a aucune intention de commercialisation.
+            Il est distribué sous la licence GNU LGPL-3.0. Pour plus de détail consulter la licence GNU General.
+			\n\nUne version de la licence accompagne IAIDiscuss, sinon consultez le sur, https://www.gnu.org/licenses
+			\n\nLe code source complet est téléchargeable sur https://github.com/cresusjpt/IAIDiscuss
+			\n\n\nLibrairies et documentation consultées:
+			\n\nhttps://www.bouncycastle.org\n(The MIT License (MIT))
+			\n\nhttps://www.firebase.google.com
+			\n\nhttps://www.gnu.org/software/libidn\n(Apache License, Version 2.0)
+			\n\nhttps://github.com/ge0rg/MemorizingTrustManager\n(The MIT License (MIT))
+			\n\nhttps://github.com/rtreffer/minidns\n(WTFPL)
+			\n\nhttps://github.com/open-keychain/openkeychain-api-lib\n(Apache License, Version 2.0)
+			\n\nhttps://github.com/jitsi/otr4j\n(LGPL-3.0)
+			\n\nhttps://developer.android.com/tools/support-library\n(Apache License, Version 2.0)
+			\n\nhttps://github.com/zxing/zxing\n(Apache License, Version 2.0)
+			\n\nhttps://github.com/google/material-design-icons\n(CC BY 4.0)
+			\n\nhttps://github.com/timroes/EnhancedListView\n(Apache License, Version 2.0)
+			\n\nhttps://github.com/leolin310148/ShortcutBadger\n(Apache License, Version 2.0)
+			\n\nhttps://github.com/kyleduo/SwitchButton\n(Apache License, Version 2.0)
+			\n\nhttps://github.com/WhisperSystems/libaxolotl-java\n(GPLv3)
+			\n\nhttps://github.com/vinc3m1/RoundedImageView\n(Apache License, Version 2.0)
+			\n\nhttps://github.com/jdamcd/android-crop\n(Apache License, Version 2.0)
+			\n\nhttps://github.com/hbb20/CountryCodePickerProjectp\n(Apache License, Version 2.0)
+	</string>
+    <string name="livraison_hour">Heure de livraison</string>
+    <string name="order_add">Commande ajoutée. Voulez-vous le suivre ?</string>
+    <string name="track_order">Suivre la Commande</string>
+    <string name="order_total">Total de la course</string>
+    <string name="order_status">Statut</string>
+    <string name="order_number">Commande#%1$s</string>
+    <string name="order_total_fees">%1$s FCFA</string>
+    <string name="edit_order">Modifier la Commande</string>
+    <string name="order_submitted">Commande envoyée</string>
+    <string name="order_submitted_desc">Votre commande a bien été reçu par D-liver</string>
+    <string name="order_payment">Payer</string>
+    <string name="order_payment_desc">Procéder au règlement de la commande</string>
+    <string name="order_deliver">Attribution de livreur</string>
+    <string name="order_deliver_desc">En attente d\'assignation de livreur à votre commande</string>
+    <string name="order_collected">Commande collectée</string>
+    <string name="order_collected_desc">Votre commande vient d\'être collectée</string>
+    <string name="order_delivery">En route pour votre livraison</string>
+    <string name="order_delivered">Commande Livrée !</string>
+    <string name="order_payment_action">Régler</string>
+    <string name="order_deliver_string">Voir les livreurs de la zone</string>
+    <string name="order_delivery_action">Voir sur la carte</string>
+    <string name="order_delivered_action">Vérifier</string>
+    <string name="order_track">Suivi de commande</string>
+    <string name="order_track_stade">Etape %s</string>
+    <string name="default_notification_channel_id">D-liver_channel</string>
+    <string name="title_activity_deliver_location">Localisation des livreurs</string>
+    <string name="valid_text">Envoyez ce code si vous n\'êtes pas le destinataire : %s</string>
+    <string name="title_activity_track_location">Suivi de la livraison</string>
+    <string name="valid_label">Valider livraison</string>
+    <string name="poids_approximatif_du_colis">Poids approximatif du colis</string>
+    <string name="premiers_pas_avec_d_liver">Premiers pas avec D-Liver</string>
+    <string name="suivant">Suivant</string>
+    <string name="premiers_pas_avec_d_liver">Premiers pas avec D-Liver</string>
+    <string name="authenticate_sms_verify">Saisissez le code reçu au numero saisi précedemment.</string>
+    <string name="continuer">Continuer</string>
+</resources>

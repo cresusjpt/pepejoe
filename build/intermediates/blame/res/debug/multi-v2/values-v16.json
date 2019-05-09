@@ -4,7 +4,7 @@
             "outputFile": "F:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-1\\files-1.1\\materialdatetimepicker-4.1.2.aar\\54963c89edc8d47c8e891443d36f83f5\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\ddbe9f4c11305ad175facf9bc41ac1e1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2,3,6,9",
                         "startColumns": "4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.1.0-alpha05.aar\\0fcbcde0fa3a0e8714d307ede416ad9f\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\aa0d36ce307d81fdf7a0ae631bd3b71b\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha04.aar\\1e349e6c46985082e25f7b385530b90e\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\e1abf6e3f8b6ba12e6a3787399d16cb8\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

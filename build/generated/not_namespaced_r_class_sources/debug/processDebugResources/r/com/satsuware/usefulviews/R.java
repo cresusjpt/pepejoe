@@ -637,8 +637,8 @@ public final class R {
         public static final int abc_shareactionprovider_share_with = 0x7f110018;
         public static final int abc_shareactionprovider_share_with_application = 0x7f110019;
         public static final int abc_toolbar_collapse_description = 0x7f11001a;
-        public static final int status_bar_notification_info_overflow = 0x7f110127;
-        public static final int widget_labelled_spinner_errorText = 0x7f110138;
+        public static final int status_bar_notification_info_overflow = 0x7f11012b;
+        public static final int widget_labelled_spinner_errorText = 0x7f11013d;
     }
     public static final class style {
         private style() {}

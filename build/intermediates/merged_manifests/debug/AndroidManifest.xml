@@ -59,7 +59,6 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcherer_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
 
         <!--
@@ -358,11 +357,6 @@
             android:exported="false"
             android:label=""
             android:theme="@style/EasyPermissions.Transparent" />
-
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.saltechdigital.dliver.com.android.tools.ir.server.InstantRunContentProvider"
-            android:multiprocess="true" />
     </application>
 
 </manifest>

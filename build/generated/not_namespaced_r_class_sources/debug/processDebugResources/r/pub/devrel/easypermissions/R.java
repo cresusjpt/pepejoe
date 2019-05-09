@@ -809,11 +809,11 @@ public final class R {
         public static final int abc_shareactionprovider_share_with = 0x7f110018;
         public static final int abc_shareactionprovider_share_with_application = 0x7f110019;
         public static final int abc_toolbar_collapse_description = 0x7f11001a;
-        public static final int rationale_ask = 0x7f11011a;
-        public static final int rationale_ask_again = 0x7f11011b;
-        public static final int search_menu_title = 0x7f110123;
-        public static final int status_bar_notification_info_overflow = 0x7f110127;
-        public static final int title_settings_dialog = 0x7f110132;
+        public static final int rationale_ask = 0x7f11011e;
+        public static final int rationale_ask_again = 0x7f11011f;
+        public static final int search_menu_title = 0x7f110127;
+        public static final int status_bar_notification_info_overflow = 0x7f11012b;
+        public static final int title_settings_dialog = 0x7f110137;
     }
     public static final class style {
         private style() {}

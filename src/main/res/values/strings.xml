@@ -7,7 +7,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="title_activity_verification"></string>
+    <string name="title_activity_verification" />
     <string name="invalid_phone_number">Ce numero de télephone n\'est pas valide.</string>
     <string name="title_activity_login">Sign in</string>
     <!-- Strings related to login -->
@@ -314,7 +314,6 @@
     <string name="poids_approximatif_du_colis">Poids approximatif du colis</string>
     <string name="premiers_pas_avec_d_liver">Premiers pas avec D-Liver</string>
     <string name="suivant">Suivant</string>
-    <string name="premiers_pas_avec_d_liver">Premiers pas avec D-Liver</string>
     <string name="authenticate_sms_verify">Saisissez le code reçu au numero saisi précedemment.</string>
     <string name="continuer">Continuer</string>
 </resources>

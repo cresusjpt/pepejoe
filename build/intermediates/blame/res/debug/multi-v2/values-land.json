@@ -4,7 +4,26 @@
             "outputFile": "F:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-1\\files-1.1\\materialdatetimepicker-4.1.2.aar\\54963c89edc8d47c8e891443d36f83f5\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\7f229a6995948d7b8b4512ff2d6c6733\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "10",
+                        "endOffsets": "222"
+                    },
+                    "to": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "1006",
+                        "endLines": "20",
+                        "endColumns": "10",
+                        "endOffsets": "1173"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\ddbe9f4c11305ad175facf9bc41ac1e1\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,32 +40,13 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha04.aar\\1e349e6c46985082e25f7b385530b90e\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\e1abf6e3f8b6ba12e6a3787399d16cb8\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
                         "startOffsets": "55,125,196",
                         "endColumns": "69,70,67",
                         "endOffsets": "120,191,259"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha05.aar\\168df747a5f6b9b447239ab134e95640\\res\\values-land\\values-land.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "10",
-                        "endOffsets": "222"
-                    },
-                    "to": {
-                        "startLines": "17",
-                        "startColumns": "4",
-                        "startOffsets": "1006",
-                        "endLines": "20",
-                        "endColumns": "10",
-                        "endOffsets": "1173"
                     }
                 }
             ]

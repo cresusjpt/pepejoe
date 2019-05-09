@@ -1415,6 +1415,7 @@
     <string name="app_intro_skip_button">SKIP</string>
     <string name="app_name">D-Liver</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="authenticate_sms_verify">Saisissez le code reçu au numero saisi précedemment.</string>
     <string name="autre">Magic</string>
     <string name="bank_card_owner">Nom du Titulaire de la carte</string>
     <string name="boisson">Apéro</string>
@@ -1451,6 +1452,7 @@
     <string name="completed_order_title">Terminé</string>
     <string name="connection_error">Une erreur s\'est produite. Veuillez réessayer ultérieurement</string>
     <string name="connection_failed">La connexion à échouée. Veuillez réessayer ultérieurement</string>
+    <string name="continuer">Continuer</string>
     <string name="coursier">Coursier</string>
     <string name="coursier_tag">Nous collectons et livrons des courriers ou les produits disponibles dans votre ville. Si vous souhaitez acheter un produit, vous pouvez utilisez "Magic"</string>
     <string name="cvc">CVC</string>
@@ -1663,6 +1665,7 @@
     <string name="places_powered_by_google">Powered by Google</string>
     <string name="places_search_error">Can\'t load search results.</string>
     <string name="places_try_again">Try again</string>
+    <string name="poids_approximatif_du_colis">Poids approximatif du colis</string>
     <string name="positive_button">OK</string>
     <string name="pref_about_message" translatable="false">
 			<b>D-liver</b> • une application ingénieuse dans le monde de la méssagerie instantanée.
@@ -1713,6 +1716,7 @@
     <string name="pref_title_sync_frequency">Sync frequency</string>
     <string name="pref_title_system_sync_settings">System sync settings</string>
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="premiers_pas_avec_d_liver">Premiers pas avec D-Liver</string>
     <string name="project_id" translatable="false">dliver-f6dfc</string>
     <string name="prompt_address">Adresse</string>
     <string name="prompt_connect">Se conneceter</string>
@@ -1737,6 +1741,7 @@
     <string name="settings">Paramètres</string>
     <string name="special_demande">Demande spéciale ?</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="suivant">Suivant</string>
     <string name="title_activity_create_livraison">Nouvelle livraison</string>
     <string name="title_activity_deliver_location">Localisation des livreurs</string>
     <string name="title_activity_location">Map</string>

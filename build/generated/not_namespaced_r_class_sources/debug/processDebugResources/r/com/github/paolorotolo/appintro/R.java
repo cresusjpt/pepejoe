@@ -845,19 +845,19 @@ public final class R {
         public static final int app_intro_done_button = 0x7f110029;
         public static final int app_intro_next_button = 0x7f11002a;
         public static final int app_intro_skip_button = 0x7f11002b;
-        public static final int define_appintro = 0x7f110059;
-        public static final int library_appintro_author = 0x7f11007e;
-        public static final int library_appintro_authorWebsite = 0x7f11007f;
-        public static final int library_appintro_classPath = 0x7f110080;
-        public static final int library_appintro_isOpenSource = 0x7f110081;
-        public static final int library_appintro_libraryDescription = 0x7f110082;
-        public static final int library_appintro_libraryName = 0x7f110083;
-        public static final int library_appintro_libraryVersion = 0x7f110084;
-        public static final int library_appintro_libraryWebsite = 0x7f110085;
-        public static final int library_appintro_licenseId = 0x7f110086;
-        public static final int library_appintro_repositoryLink = 0x7f110087;
-        public static final int search_menu_title = 0x7f110123;
-        public static final int status_bar_notification_info_overflow = 0x7f110127;
+        public static final int define_appintro = 0x7f11005b;
+        public static final int library_appintro_author = 0x7f110080;
+        public static final int library_appintro_authorWebsite = 0x7f110081;
+        public static final int library_appintro_classPath = 0x7f110082;
+        public static final int library_appintro_isOpenSource = 0x7f110083;
+        public static final int library_appintro_libraryDescription = 0x7f110084;
+        public static final int library_appintro_libraryName = 0x7f110085;
+        public static final int library_appintro_libraryVersion = 0x7f110086;
+        public static final int library_appintro_libraryWebsite = 0x7f110087;
+        public static final int library_appintro_licenseId = 0x7f110088;
+        public static final int library_appintro_repositoryLink = 0x7f110089;
+        public static final int search_menu_title = 0x7f110127;
+        public static final int status_bar_notification_info_overflow = 0x7f11012b;
     }
     public static final class style {
         private style() {}

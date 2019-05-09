@@ -3232,6 +3232,7 @@ string app_intro_next_button
 string app_intro_skip_button
 string app_name
 string appbar_scrolling_view_behavior
+string authenticate_sms_verify
 string autre
 string bank_card_owner
 string boisson
@@ -3268,6 +3269,7 @@ string common_signin_button_text_long
 string completed_order_title
 string connection_error
 string connection_failed
+string continuer
 string coursier
 string coursier_tag
 string cvc
@@ -3445,6 +3447,7 @@ string places_cancel
 string places_powered_by_google
 string places_search_error
 string places_try_again
+string poids_approximatif_du_colis
 string positive_button
 string pref_about_message
 string pref_default_display_name
@@ -3461,6 +3464,7 @@ string pref_title_social_recommendations
 string pref_title_sync_frequency
 string pref_title_system_sync_settings
 string pref_title_vibrate
+string premiers_pas_avec_d_liver
 string project_id
 string prompt_address
 string prompt_connect
@@ -3482,6 +3486,7 @@ string selection_limiter_pix
 string settings
 string special_demande
 string status_bar_notification_info_overflow
+string suivant
 string title_activity_create_livraison
 string title_activity_deliver_location
 string title_activity_location

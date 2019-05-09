@@ -8,6 +8,7 @@
     <color name="colorWhite">#fff</color>
     <color name="colorGrey">#E6B9AFAF</color>
     <color name="colorRed">#EB1010</color>
+    <color name="colorRedGrey">#AF2B2B</color>
 
     <color name="colorPrimaryPix">@color/colorPrimary</color>
     <color name="colorPrimaryLightPix">@color/colorPrimaryDark</color>

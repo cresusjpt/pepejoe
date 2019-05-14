@@ -1,13 +1,13 @@
 package com.saltechdigital.dliver.slidingTab;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
 import com.saltechdigital.dliver.CompletedOrder;
 import com.saltechdigital.dliver.PendingOrder;
 
 import org.jetbrains.annotations.NotNull;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 
 /**
  * Created by Jeanpaul Tossou on 02/11/2016.
@@ -15,12 +15,12 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    private CharSequence Titles[]; // This will Store the Titles of the Tabs which are Going to be passed when ViewPagerAdapter is created
+    private CharSequence[] Titles; // This will Store the Titles of the Tabs which are Going to be passed when ViewPagerAdapter is created
     private int NumbOfTabs; // Store the number of tabs, this will also be passed when the ViewPagerAdapter is created
 
 
     // Build a Constructor and assign the passed Values to appropriate values in the class
-    public ViewPagerAdapter(FragmentManager fm, CharSequence mTitles[], int mNumbOfTabsumb) {
+    public ViewPagerAdapter(FragmentManager fm, CharSequence[] mTitles, int mNumbOfTabsumb) {
         super(fm);
         this.Titles = mTitles;
         this.NumbOfTabs = mNumbOfTabsumb;

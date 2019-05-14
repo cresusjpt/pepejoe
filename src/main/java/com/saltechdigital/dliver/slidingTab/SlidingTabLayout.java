@@ -13,10 +13,10 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.saltechdigital.dliver.R;
-
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.saltechdigital.dliver.R;
 
 /* *
  * Created by Jeanpaul Tossou on 02/11/2016.
@@ -165,7 +165,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             if (tabView == null) {
                 tabView = createDefaultTabView(getContext());
             }
-            if (tabTitleView == null && TextView.class.isInstance(tabView)) {
+            if (tabTitleView == null && tabView instanceof TextView) {
                 tabTitleView = (TextView) tabView;
             }
             if (mDistributeEvenly) {

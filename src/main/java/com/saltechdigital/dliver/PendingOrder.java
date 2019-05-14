@@ -9,16 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.marcinorlowski.fonty.Fonty;
-import com.saltechdigital.dliver.adapter.PendingOrderAdapter;
-import com.saltechdigital.dliver.models.Livraison;
-import com.saltechdigital.dliver.storage.SessionManager;
-import com.saltechdigital.dliver.tasks.DeliverApi;
-import com.saltechdigital.dliver.tasks.DeliverApiService;
-
-import java.util.List;
-import java.util.Objects;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -26,6 +16,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.marcinorlowski.fonty.Fonty;
+import com.saltechdigital.dliver.adapter.PendingOrderAdapter;
+import com.saltechdigital.dliver.models.Livraison;
+import com.saltechdigital.dliver.storage.SessionManager;
+import com.saltechdigital.dliver.tasks.DeliverApi;
+import com.saltechdigital.dliver.tasks.DeliverApiService;
+import com.saltechdigital.dliver.utils.ConnectionState;
+
+import java.util.List;
+import java.util.Objects;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -98,13 +100,18 @@ public class PendingOrder extends Fragment {
         if (compositeDisposable.isDisposed()) {
             compositeDisposable = new CompositeDisposable();
         }
-        progressDialog(true);
-        compositeDisposable.add(
-                deliverApi.getPendingLivraison(new SessionManager(getContext()).getClientID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(getPendingLivraisons())
-        );
+        if (ConnectionState.isConnected(context)) {
+            progressDialog(true);
+            compositeDisposable.add(
+                    deliverApi.getPendingLivraison(new SessionManager(getContext()).getClientID())
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeWith(getPendingLivraisons())
+            );
+        } else {
+            Toast.makeText(context, R.string.not_connected, Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override

@@ -18,10 +18,10 @@ import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
-import java.util.List;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.core.app.NavUtils;
+
+import java.util.List;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -76,7 +76,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     preference.setSummary(name);
                 }
             }
-
         } else {
             // For all other preferences, set the summary to the value's
             // simple string representation.

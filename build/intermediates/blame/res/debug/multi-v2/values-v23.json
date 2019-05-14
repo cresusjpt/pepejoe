@@ -4,17 +4,6 @@
             "outputFile": "F:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\e1abf6e3f8b6ba12e6a3787399d16cb8\\res\\values-v23\\values-v23.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,20,34,35,36,37,41,42,43,44",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1371,2267,2386,2513,2618,2842,2957,3064,3177",
-                        "endLines": "2,3,4,5,19,33,34,35,36,40,41,42,43,47",
-                        "endColumns": "134,134,74,86,12,12,118,126,104,12,114,106,112,12",
-                        "endOffsets": "185,320,395,482,1366,2262,2381,2508,2613,2837,2952,3059,3172,3402"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\84d6161c942ccffb00ccaf7d0d30eec4\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
@@ -34,22 +23,33 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\7f229a6995948d7b8b4512ff2d6c6733\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\51a1290f15e2a9f832fdbca7f9876b2e\\res\\values-v23\\values-v23.xml",
                     "from": {
-                        "startLines": "2,5",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,215",
-                        "endLines": "4,7",
-                        "endColumns": "10,10",
-                        "endOffsets": "210,379"
+                        "startLines": "2,3,4,5,6,20,34,35,36,37,41,42,43,44",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1371,2267,2386,2513,2618,2842,2957,3064,3177",
+                        "endLines": "2,3,4,5,19,33,34,35,36,40,41,42,43,47",
+                        "endColumns": "134,134,74,86,12,12,118,126,104,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1366,2262,2381,2508,2613,2837,2952,3059,3172,3402"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\996c91e7b6ac6b84312b4dd85bef535d\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,6,9,12",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,330,502,662",
+                        "endLines": "5,8,11,14",
+                        "endColumns": "10,10,10,10",
+                        "endOffsets": "325,497,657,826"
                     },
                     "to": {
-                        "startLines": "51,54",
-                        "startColumns": "4,4",
-                        "startOffsets": "3557,3717",
-                        "endLines": "53,56",
-                        "endColumns": "10,10",
-                        "endOffsets": "3712,3881"
+                        "startLines": "51,55,58,61",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "3557,3832,4004,4164",
+                        "endLines": "54,57,60,63",
+                        "endColumns": "10,10,10,10",
+                        "endOffsets": "3827,3999,4159,4328"
                     }
                 }
             ]

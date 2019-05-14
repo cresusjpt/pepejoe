@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.arsy.maps_library.MapRadar;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,12 +24,10 @@ import com.saltechdigital.dliver.models.Repere;
 import com.saltechdigital.dliver.tasks.DeliverApi;
 import com.saltechdigital.dliver.tasks.DeliverApiService;
 import com.saltechdigital.dliver.utils.Config;
+import com.saltechdigital.dliver.utils.ConnectionState;
 
 import java.util.List;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -60,9 +62,6 @@ public class DeliverLocationActivity extends AppCompatActivity implements OnMapR
                     if (repere.getLibRepere().equals(Config.LIB_REPERE_CHARGEMENT)) {
                         latLngChar = new LatLng(repere.getLatitude(), repere.getLongitude());
                     }
-                    /*if (repere.getLibRepere().equals(Config.LIB_REPERE_DECHARGEMENT)) {
-                        latLngDeChar = new LatLng(repere.getLatitude(), repere.getLongitude());
-                    }*/
                 }
 
                 assert latLngChar != null;
@@ -118,13 +117,17 @@ public class DeliverLocationActivity extends AppCompatActivity implements OnMapR
     }
 
     private void databind() {
-        progressDialog(true);
-        compositeDisposable.add(
-                deliverApi.getRepereLivraison(livraison.getId())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(getRepereLivraison())
-        );
+        if (ConnectionState.isConnected(context)) {
+            progressDialog(true);
+            compositeDisposable.add(
+                    deliverApi.getRepereLivraison(livraison.getId())
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeWith(getRepereLivraison())
+            );
+        } else {
+            Toast.makeText(context, R.string.not_connected, Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**

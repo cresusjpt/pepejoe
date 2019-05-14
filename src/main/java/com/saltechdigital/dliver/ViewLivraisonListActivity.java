@@ -5,17 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.marcinorlowski.fonty.Fonty;
-import com.saltechdigital.dliver.utils.Config;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.marcinorlowski.fonty.Fonty;
+import com.saltechdigital.dliver.utils.Config;
 
 public class ViewLivraisonListActivity extends AppCompatActivity {
 
@@ -28,7 +28,6 @@ public class ViewLivraisonListActivity extends AppCompatActivity {
     private CardView cardView;
 
     private String serviceTag;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +52,7 @@ public class ViewLivraisonListActivity extends AppCompatActivity {
         if (serviceTag.equals("pharmacie")) {
             tagText.setText(R.string.pharmacy_tag);
         }
-
+        setTitle(serviceTag);
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> Snackbar.make(view, R.string.special_demande, Snackbar.LENGTH_LONG)
                 .setAction(R.string.rb_yes, view -> {

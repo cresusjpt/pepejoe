@@ -5,16 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.marcinorlowski.fonty.Fonty;
-import com.saltechdigital.dliver.adapter.NotificationAdapter;
-import com.saltechdigital.dliver.models.Notifications;
-import com.saltechdigital.dliver.storage.SessionManager;
-import com.saltechdigital.dliver.tasks.DeliverApi;
-import com.saltechdigital.dliver.tasks.DeliverApiService;
-
-import java.util.List;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +12,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.marcinorlowski.fonty.Fonty;
+import com.saltechdigital.dliver.adapter.NotificationAdapter;
+import com.saltechdigital.dliver.models.Notifications;
+import com.saltechdigital.dliver.storage.SessionManager;
+import com.saltechdigital.dliver.tasks.DeliverApi;
+import com.saltechdigital.dliver.tasks.DeliverApiService;
+import com.saltechdigital.dliver.utils.ConnectionState;
+
+import java.util.List;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -99,11 +101,17 @@ public class NotificationActivity extends AppCompatActivity {
     }
 
     private void databind() {
-        compositeDisposable.add(
-                deliverApi.getNotifByClient(new SessionManager(context).getClientID())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(getNotifications())
-        );
+        if (ConnectionState.isConnected(context)) {
+            compositeDisposable.add(
+                    deliverApi.getNotifByClient(new SessionManager(context).getClientID())
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeWith(getNotifications())
+            );
+        } else {
+            Snackbar.make(relativeLayout, R.string.not_connected, Snackbar.LENGTH_SHORT).show();
+            progressDialog(false);
+        }
+
     }
 }

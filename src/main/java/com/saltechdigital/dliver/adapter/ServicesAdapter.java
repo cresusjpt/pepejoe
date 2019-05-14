@@ -7,8 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.saltechdigital.dliver.CreateLivraisonActivity;
@@ -17,14 +21,8 @@ import com.saltechdigital.dliver.ViewLivraisonListActivity;
 import com.saltechdigital.dliver.models.Services;
 import com.saltechdigital.dliver.utils.Config;
 import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageListener;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder> {
 
@@ -48,7 +46,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Services services = servicesList.get(position);
-
         holder.carouselView.setBackgroundResource(R.drawable.state_list);
         holder.deliverType.setBackgroundResource(R.drawable.state_list);
         holder.cardv.setBackgroundResource(R.drawable.state_list);
@@ -82,10 +79,10 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
             carouselView = itemView.findViewById(R.id.carouselView);
             deliverType = itemView.findViewById(R.id.deliver_type);
             cardv = itemView.findViewById(R.id.cardv);
-
             deliverType.setOnClickListener(v -> serviceClick());
 
             carouselView.setOnClickListener(v -> serviceClick());
+            carouselView.setImageClickListener(position -> serviceClick());
         }
 
         void serviceClick() {

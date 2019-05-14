@@ -1,0 +1,7 @@
+#Mon May 13 23:22:43 CEST 2019
+base.0=F\:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=F\:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10

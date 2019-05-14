@@ -10,14 +10,14 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.saltechdigital.dliver.R;
 import com.saltechdigital.dliver.TimeLineActivityJ;
 import com.saltechdigital.dliver.models.Livraison;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapter.ViewHolder> {
     public static final String LIVRAISON_ID = "LIVRAISON_ID";
@@ -84,12 +84,22 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
 
         private void display(Livraison livraison) {
             current = livraison;
-
             pendingTitle.setText(livraison.getNomExpediteur());
             pendingNumber.setText(context.getString(R.string.order_number, String.valueOf(livraison.getId())));
             pendingTotal.setText(context.getString(R.string.order_total_fees, String.valueOf(livraison.getCoutHt())));
+
             //TODO get order status from the database
-            pendingStatus.setText("" + livraison.getCodeStatLivraison());
+            String status = "";
+            if (livraison.getCodeStatLivraison() == 1) {
+                status = "Commande créee";
+            }
+            if (livraison.getCodeStatLivraison() == 1) {
+                status = "Traitement en cours";
+            }
+            if (livraison.getCodeStatLivraison() == 1) {
+                status = "Commande livrée";
+            }
+            pendingStatus.setText(status);
         }
     }
 }

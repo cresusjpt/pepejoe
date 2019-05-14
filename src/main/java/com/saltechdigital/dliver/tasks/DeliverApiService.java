@@ -19,6 +19,31 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DeliverApiService {
 
+    public static DeliverApi createDeliverApi(String endpoint) {
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        //final String token = new SessionManager(context).getToken();
+        Gson gson = new GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+                .registerTypeAdapter(Client.class, new ClientDeserializer())
+                .registerTypeAdapter(User.class, new UserDeserializer())
+                //.registerTypeAdapter(Address.class,new AddressDeserializer())
+                .create();
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(interceptor)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(endpoint)
+                .client(okHttpClient)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        return retrofit.create(DeliverApi.class);
+    }
+
     public static DeliverApi createDeliverApi(Context context) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -41,8 +66,6 @@ public class DeliverApiService {
                 })
                 .addInterceptor(interceptor)
                 .build();
-
-        //okHttpClient.interceptors().add(logging);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(DeliverApi.ENDPOINT)

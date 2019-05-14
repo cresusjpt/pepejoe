@@ -4,7 +4,6 @@
     <item>
         <shape>
             <gradient android:angle="0" android:centerColor="@color/colorWhite" android:endColor="@color/colorWhite" android:gradientRadius="10sp" android:startColor="@color/colorWhite" />
-
             <corners android:radius="5dp" />
             <stroke android:width="2dp" android:color="@color/colorGrey" />
         </shape>

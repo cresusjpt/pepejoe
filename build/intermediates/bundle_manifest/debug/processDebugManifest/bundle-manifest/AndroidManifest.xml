@@ -7,7 +7,6 @@
     <uses-sdk
         android:minSdkVersion="19"
         android:targetSdkVersion="28" />
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -59,8 +58,9 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcherer_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
-
+        <activity android:name="com.saltechdigital.dliver.WebviewInAppActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -141,7 +141,8 @@
         <activity
             android:name="com.saltechdigital.dliver.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity" >
+            android:parentActivityName="com.saltechdigital.dliver.PrincipaleActivity"
+            android:theme="@style/AppTheme.ActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.saltechdigital.dliver.PrincipaleActivity" />
@@ -286,7 +287,7 @@
         -->
         <service
             android:name="com.google.firebase.messaging.FirebaseMessagingService"
-            android:exported="true" >
+            android:exported="false" >
             <intent-filter android:priority="-500" >
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -300,17 +301,6 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </receiver>
-        <!--
-             FirebaseInstanceIdService performs security checks at runtime,
-             no need for explicit permissions despite exported="true"
-        -->
-        <service
-            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
-            android:exported="true" >
-            <intent-filter android:priority="-500" >
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
 
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
@@ -357,6 +347,11 @@
             android:exported="false"
             android:label=""
             android:theme="@style/EasyPermissions.Transparent" />
+
+        <provider
+            android:name="com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.saltechdigital.dliver.com.android.tools.ir.server.InstantRunContentProvider"
+            android:multiprocess="true" />
     </application>
 
 </manifest>

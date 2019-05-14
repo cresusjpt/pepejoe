@@ -5,6 +5,8 @@ import com.saltechdigital.dliver.R;
 public class Config {
     public static final float DEFAULT_ZOOM = 14.0f;
     public static final String TAG = "JEANPAUL";
+    public static final String PAYGATE_API_KEY = "9ef2ffa6-af1d-4176-be4d-b178948e4278";
+    public static final String INTENT_EXTRA_URL = "WebViewInAppUrl";
     public static final String NOTIFICATION_TAG = "JEANPAUL";
     public static final int NOTIFICATION_ID = 26;
     public static final String LIB_REPERE_CHARGEMENT = "Chargement";

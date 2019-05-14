@@ -19,6 +19,15 @@ import android.widget.ProgressBar;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.google.android.material.textfield.TextInputEditText;
 import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.dliver.adapter.PaymentAdapter;
@@ -30,14 +39,6 @@ import com.saltechdigital.dliver.utils.Config;
 
 import java.util.List;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -283,7 +284,6 @@ public class PaymentWayActivity extends AppCompatActivity implements View.OnClic
                 focusView.requestFocus();
             } else {
                 Payment payment = new Payment();
-
                 payment.setClienID(new SessionManager(context).getClientID());
                 payment.setType("Carte");
                 payment.setCardNumber(bcNumber);

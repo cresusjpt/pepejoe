@@ -1,5 +1,6 @@
 package com.saltechdigital.dliver.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,19 +10,31 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saltechdigital.dliver.DeliverLocationActivity;
 import com.saltechdigital.dliver.R;
 import com.saltechdigital.dliver.TrackLocationActivity;
 import com.saltechdigital.dliver.ValidLivraisonActivity;
+import com.saltechdigital.dliver.WebviewInAppActivity;
 import com.saltechdigital.dliver.models.Livraison;
+import com.saltechdigital.dliver.models.Payment;
 import com.saltechdigital.dliver.models.Process;
+import com.saltechdigital.dliver.storage.SessionManager;
+import com.saltechdigital.dliver.tasks.DeliverApi;
+import com.saltechdigital.dliver.tasks.DeliverApiService;
 import com.saltechdigital.dliver.utils.Config;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 
 public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.ViewHolder> {
 
@@ -31,12 +44,43 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.ViewHo
     private Livraison livraison;
     private List<Process> processes;
     private Context context;
+    private CompositeDisposable compositeDisposable;
+    private DeliverApi deliverApi;
+    private List<Payment> paymentList;
 
     public TimeLineAdapter(Context ctx, List<Process> processList, Livraison livraison) {
         this.livraison = livraison;
         processes = processList;
         this.context = ctx;
+        deliverApi = DeliverApiService.createDeliverApi(context);
         notifyDataSetChanged();
+        databind();
+    }
+
+    private DisposableSingleObserver<List<Payment>> getPayment() {
+        return new DisposableSingleObserver<List<Payment>>() {
+            @Override
+            public void onSuccess(List<Payment> value) {
+                paymentList = value;
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                databind();
+            }
+        };
+    }
+
+    private void databind() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
+        }
+        compositeDisposable.add(
+                deliverApi.getPayment(new SessionManager(context).getClientID())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io())
+                        .subscribeWith(getPayment())
+        );
     }
 
     @NonNull
@@ -82,6 +126,7 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.ViewHo
             trackAction.setOnClickListener(v -> {
                 switch (current.getTag()) {
                     case "Payed":
+                        payment();
                         break;
                     case "Deliver":
                         startActivity(DeliverLocationActivity.class);
@@ -94,6 +139,43 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.ViewHo
                         break;
                 }
             });
+        }
+
+        void payment() {
+            if (paymentList != null) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle(R.string.payments);
+                builder.setNegativeButton(R.string.negative_button, null);
+                CharSequence[] items = new CharSequence[paymentList.size()];
+                for (int i = 0; i < paymentList.size(); i++) {
+                    Payment payment = paymentList.get(i);
+                    if (payment.getType().equals("Flooz") || payment.getType().equals("TMoney")) {
+                        items[i] = payment.getPhoneNumber() + " " + payment.getType();
+                    } else {
+                        items[i] = payment.getCardNumber() + " " + payment.getType();
+                    }
+                }
+
+                builder.setItems(items, (dialog, which) -> {
+                    Payment payment = paymentList.get(which);
+                    if (payment.getType().equals("Flooz") || payment.getType().equals("TMoney")) {
+                        String url;
+                        try {
+                            url = DeliverApi.urlRessource(DeliverApi.PAYGATE_ENDPOINT, Config.PAYGATE_API_KEY, context, livraison, DeliverApi.PAYGATE_PAYMENT_URL);
+                            Intent intent = new Intent(context, WebviewInAppActivity.class);
+                            intent.putExtra(Config.INTENT_EXTRA_URL, url);
+                            context.startActivity(intent);
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Toast.makeText(context, context.getString(R.string.card_unimplemented_yet), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.create().show();
+            } else {
+                Toast.makeText(context, R.string.none_paymentway, Toast.LENGTH_SHORT).show();
+            }
         }
 
         private void startActivity(Class cls) {

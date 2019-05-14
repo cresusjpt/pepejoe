@@ -1,4 +1,4 @@
-# Referenced at F:\LangageAndroid\AndroidStudioProjects\Dliver\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:51
+# Referenced at F:\LangageAndroid\AndroidStudioProjects\Dliver\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:50
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at F:\LangageAndroid\AndroidStudioProjects\Dliver\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:51
+# Referenced at F:\LangageAndroid\AndroidStudioProjects\Dliver\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:50
 -keep class com.saltechdigital.dliver.Application { <init>(); }

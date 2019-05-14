@@ -98,6 +98,7 @@
 
     <string name="positive_button">OK</string>
     <string name="negative_button">Annuler</string>
+    <string name="none_paymentway">Vous n\'avez enrégistrer aucun moyen de paiement</string>
 
     <string name="delete_address_title">Supprimer Adresse</string>
     <string name="delete_address_message">Voulez vous vraiment supprimer cette addresse ?</string>
@@ -316,4 +317,11 @@
     <string name="suivant">Suivant</string>
     <string name="authenticate_sms_verify">Saisissez le code reçu au numero saisi précedemment.</string>
     <string name="continuer">Continuer</string>
+    <string name="payment_description">Règlement de votre demande de livraison</string>
+    <string name="payment_reference">Réference de paiement </string>
+    <string name="card_unimplemented_yet">Nous n\'acceptons pas encore les règlements par carte bancaire</string>
+    <string name="payment_status_success">Réussi</string>
+    <string name="payment_status_pending">En cours</string>
+    <string name="payment_status_expire">Expiré</string>
+    <string name="payment_status_abort">Annulé</string>
 </resources>

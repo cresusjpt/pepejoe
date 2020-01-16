@@ -34,9 +34,9 @@ import retrofit2.http.Url;
 
 public interface DeliverApi {
 
-    String BASEENDPOINT = "http://192.168.1.2:8090/deliver/web/";
+    //String BASEENDPOINT = "http://192.168.1.2:8090/deliver/web/";
     String RESFOLDER = "resfolder/";
-    //String BASEENDPOINT = "http://dliver.alwaysdata.net/web/";
+    String BASEENDPOINT = "http://dliver.alwaysdata.net/web/";
     String WEBENDPOINT = String.format("%sprofile_picture/", BASEENDPOINT);
     String ENDPOINT = String.format("%sapi/", BASEENDPOINT);
     String PAYGATE_ENDPOINT = "https://paygateglobal.com/";

@@ -3348,6 +3348,7 @@ string destin_adresse
 string destin_name
 string edit
 string edit_order
+string enter_valid_code
 string error_field_required
 string error_incorrect_password
 string error_invalid_email
@@ -3361,6 +3362,7 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string fcm_fallback_notification_channel_label
 string firebase_database_url
+string firebase_error
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id

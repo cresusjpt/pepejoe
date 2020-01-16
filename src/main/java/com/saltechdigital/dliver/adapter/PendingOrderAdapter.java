@@ -93,10 +93,10 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
             if (livraison.getCodeStatLivraison() == 1) {
                 status = "Commande créee";
             }
-            if (livraison.getCodeStatLivraison() == 1) {
+            if (livraison.getCodeStatLivraison() == 2) {
                 status = "Traitement en cours";
             }
-            if (livraison.getCodeStatLivraison() == 1) {
+            if (livraison.getCodeStatLivraison() == 3) {
                 status = "Commande livrée";
             }
             pendingStatus.setText(status);

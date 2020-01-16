@@ -10,12 +10,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,10 +27,6 @@ import com.saltechdigital.dliver.utils.Config;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import static com.saltechdigital.dliver.CheckAuthActivity.PHONENUMBER;
 
@@ -67,11 +64,12 @@ public class VerificationActivity extends AppCompatActivity {
             Log.w("JEANPAUL", "onVerificationFailed", e);
             if (e instanceof FirebaseAuthInvalidCredentialsException) {
                 // Invalid request
-                // ...
+                Toast.makeText(VerificationActivity.this, R.string.firebase_database_url, Toast.LENGTH_SHORT).show();
                 Toast.makeText(VerificationActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d(Config.TAG, "Firebase error: ",e);
             } else if (e instanceof FirebaseTooManyRequestsException) {
                 // The SMS quota for the project has been exceeded
-                // ...
+                Toast.makeText(VerificationActivity.this, "Le quota des messages est atteint", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -108,12 +106,11 @@ public class VerificationActivity extends AppCompatActivity {
             String code = verificationCode.getText().toString().trim();
 
             if (code.isEmpty() || code.length() < 6) {
-                verificationCode.setError("Entrer un code valide");
+                verificationCode.setError(getString(R.string.enter_valid_code));
                 verificationError.setVisibility(View.VISIBLE);
                 verificationCode.requestFocus();
                 return;
             }
-
             verifyCode(code);
         });
 
@@ -133,7 +130,6 @@ public class VerificationActivity extends AppCompatActivity {
 
     private void verifyCode(String code) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-
         signInWithCredential(credential);
     }
 
@@ -151,6 +147,7 @@ public class VerificationActivity extends AppCompatActivity {
                         Log.w(Config.TAG, "signInWithCredential:failure", task.getException());
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             // The verification code entered was invalid
+                            Toast.makeText(this, R.string.enter_valid_code, Toast.LENGTH_SHORT).show();
                         }
                         Toast.makeText(VerificationActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     }

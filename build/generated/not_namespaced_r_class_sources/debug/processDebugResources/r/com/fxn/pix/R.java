@@ -1405,25 +1405,25 @@ public final class R {
         public static final int appbar_scrolling_view_behavior = 0x7f12002d;
         public static final int bottom_sheet_behavior = 0x7f120032;
         public static final int character_counter_pattern = 0x7f120039;
-        public static final int fab_transformation_scrim_behavior = 0x7f12006d;
-        public static final int fab_transformation_sheet_behavior = 0x7f12006e;
-        public static final int hide_bottom_view_on_scroll_behavior = 0x7f12007b;
-        public static final int message_to_drag_up = 0x7f1200c2;
-        public static final int mtrl_chip_close_icon_content_description = 0x7f1200c5;
-        public static final int password_toggle_content_description = 0x7f1200ec;
-        public static final int path_password_eye = 0x7f1200ed;
-        public static final int path_password_eye_mask_strike_through = 0x7f1200ee;
-        public static final int path_password_eye_mask_visible = 0x7f1200ef;
-        public static final int path_password_strike_through = 0x7f1200f0;
-        public static final int pix_last_month = 0x7f120101;
-        public static final int pix_last_week = 0x7f120102;
-        public static final int pix_ok = 0x7f120103;
-        public static final int pix_recent = 0x7f120104;
-        public static final int pix_selected = 0x7f120105;
-        public static final int pix_tap_to_select = 0x7f120106;
-        public static final int search_menu_title = 0x7f120133;
-        public static final int selection_limiter_pix = 0x7f120134;
-        public static final int status_bar_notification_info_overflow = 0x7f120137;
+        public static final int fab_transformation_scrim_behavior = 0x7f12006e;
+        public static final int fab_transformation_sheet_behavior = 0x7f12006f;
+        public static final int hide_bottom_view_on_scroll_behavior = 0x7f12007d;
+        public static final int message_to_drag_up = 0x7f1200c4;
+        public static final int mtrl_chip_close_icon_content_description = 0x7f1200c7;
+        public static final int password_toggle_content_description = 0x7f1200ee;
+        public static final int path_password_eye = 0x7f1200ef;
+        public static final int path_password_eye_mask_strike_through = 0x7f1200f0;
+        public static final int path_password_eye_mask_visible = 0x7f1200f1;
+        public static final int path_password_strike_through = 0x7f1200f2;
+        public static final int pix_last_month = 0x7f120103;
+        public static final int pix_last_week = 0x7f120104;
+        public static final int pix_ok = 0x7f120105;
+        public static final int pix_recent = 0x7f120106;
+        public static final int pix_selected = 0x7f120107;
+        public static final int pix_tap_to_select = 0x7f120108;
+        public static final int search_menu_title = 0x7f120135;
+        public static final int selection_limiter_pix = 0x7f120136;
+        public static final int status_bar_notification_info_overflow = 0x7f120139;
     }
     public static final class style {
         private style() {}

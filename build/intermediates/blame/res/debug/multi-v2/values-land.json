@@ -4,34 +4,7 @@
             "outputFile": "F:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\ddbe9f4c11305ad175facf9bc41ac1e1\\res\\values-land\\values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,120,183,245,315,388,459,511,565,616,676,737",
-                        "endColumns": "64,62,61,69,72,70,51,53,50,59,60,59",
-                        "endOffsets": "115,178,240,310,383,454,506,560,611,671,732,792"
-                    },
-                    "to": {
-                        "startLines": "5,6,7,8,9,10,11,12,13,14,15,16",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "264,329,392,454,524,597,668,720,774,825,885,946",
-                        "endColumns": "64,62,61,69,72,70,51,53,50,59,60,59",
-                        "endOffsets": "324,387,449,519,592,663,715,769,820,880,941,1001"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\51a1290f15e2a9f832fdbca7f9876b2e\\res\\values-land\\values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,125,196",
-                        "endColumns": "69,70,67",
-                        "endOffsets": "120,191,259"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\996c91e7b6ac6b84312b4dd85bef535d\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\0601bba0a06bb2a6aa65c8744891012d\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5,6",
                         "startColumns": "4,4,4,4,4",
@@ -47,6 +20,33 @@
                         "endLines": "17,18,19,20,24",
                         "endColumns": "72,69,71,69,10",
                         "endOffsets": "1074,1144,1216,1286,1458"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\cb1e9415953fd8284b42e039f33ef056\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\bcba1548379253c8119b238f2321d7f2\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,120,183,245,315,388,459,511,565,616,676,737",
+                        "endColumns": "64,62,61,69,72,70,51,53,50,59,60,59",
+                        "endOffsets": "115,178,240,310,383,454,506,560,611,671,732,792"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "264,329,392,454,524,597,668,720,774,825,885,946",
+                        "endColumns": "64,62,61,69,72,70,51,53,50,59,60,59",
+                        "endOffsets": "324,387,449,519,592,663,715,769,820,880,941,1001"
                     }
                 }
             ]

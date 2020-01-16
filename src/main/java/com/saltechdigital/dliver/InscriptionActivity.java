@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
@@ -25,6 +26,7 @@ import com.saltechdigital.dliver.storage.SessionManager;
 import com.saltechdigital.dliver.tasks.DeliverApi;
 import com.saltechdigital.dliver.tasks.DeliverApiService;
 import com.saltechdigital.dliver.utils.Config;
+import com.saltechdigital.dliver.utils.ConnectionState;
 
 import java.util.Objects;
 
@@ -74,10 +76,12 @@ public class InscriptionActivity extends AppCompatActivity implements View.OnCli
                 if (user.isStatut()) {
                     createAccount(user.getEmail(), user.getPassword(), user.getAuthKey());
 
-                    new SessionManager(InscriptionActivity.this).createUserName(user.getNom());
-                    new SessionManager(InscriptionActivity.this).createUserEmail(user.getEmail());
-                    new SessionManager(InscriptionActivity.this).createToken(user.getAccessToken());
-                    new SessionManager(InscriptionActivity.this).createClientInfo(user.getIdClient(), user.getNom(), phoneNumber);
+                    SessionManager ss = new SessionManager(InscriptionActivity.this);
+
+                    ss.createUserName(user.getNom());
+                    ss.createUserEmail(user.getEmail());
+                    ss.createToken(user.getAccessToken());
+                    ss.createClientInfo(user.getIdClient(), user.getNom(), phoneNumber);
 
                     Intent intent = new Intent(InscriptionActivity.this, PrincipaleActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -149,8 +153,8 @@ public class InscriptionActivity extends AppCompatActivity implements View.OnCli
             case R.id.bt_inscription:
                 attemptLogin();
                 break;
-
             case R.id.social_network:
+                //TODO
                 break;
         }
     }
@@ -225,12 +229,18 @@ public class InscriptionActivity extends AppCompatActivity implements View.OnCli
             user.setContact(phoneNumber);
             user.setClient(true);
 
-            compositeDisposable.add(
-                    deliverApi.register(user)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribeWith(registerObserver())
-            );
+            if (ConnectionState.isConnected(InscriptionActivity.this)){
+                compositeDisposable.add(
+                        deliverApi.register(user)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribeWith(registerObserver())
+                );
+                Toast.makeText(InscriptionActivity.this, "Inscription en cours. Vous allez être redirigé dans l'application. Sinon veuillez vous reconnecter", Toast.LENGTH_SHORT).show();
+            }else {
+                showProgress(false);
+                Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

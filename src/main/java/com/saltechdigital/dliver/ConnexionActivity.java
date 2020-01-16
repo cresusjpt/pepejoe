@@ -60,10 +60,12 @@ public class ConnexionActivity extends AppCompatActivity implements View.OnClick
                 if (value.isStatut()) {
                     createAccount(value.getEmail(), value.getPassword(), value.getAuthKey());
 
-                    new SessionManager(ConnexionActivity.this).createUserName(value.getNom());
-                    new SessionManager(ConnexionActivity.this).createUserEmail(value.getEmail());
-                    new SessionManager(ConnexionActivity.this).createToken(value.getAccessToken());
-                    new SessionManager(ConnexionActivity.this).createClientInfo(value.getIdClient(), value.getNom(), phoneNumber);
+                    SessionManager ss = new SessionManager(ConnexionActivity.this);
+
+                    ss.createUserName(value.getNom());
+                    ss.createUserEmail(value.getEmail());
+                    ss.createToken(value.getAccessToken());
+                    ss.createClientInfo(value.getIdClient(), value.getNom(), phoneNumber);
 
                     Intent intent = new Intent(ConnexionActivity.this, PrincipaleActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

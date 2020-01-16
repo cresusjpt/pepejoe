@@ -846,18 +846,18 @@ public final class R {
         public static final int app_intro_next_button = 0x7f12002a;
         public static final int app_intro_skip_button = 0x7f12002b;
         public static final int define_appintro = 0x7f12005c;
-        public static final int library_appintro_author = 0x7f120082;
-        public static final int library_appintro_authorWebsite = 0x7f120083;
-        public static final int library_appintro_classPath = 0x7f120084;
-        public static final int library_appintro_isOpenSource = 0x7f120085;
-        public static final int library_appintro_libraryDescription = 0x7f120086;
-        public static final int library_appintro_libraryName = 0x7f120087;
-        public static final int library_appintro_libraryVersion = 0x7f120088;
-        public static final int library_appintro_libraryWebsite = 0x7f120089;
-        public static final int library_appintro_licenseId = 0x7f12008a;
-        public static final int library_appintro_repositoryLink = 0x7f12008b;
-        public static final int search_menu_title = 0x7f120133;
-        public static final int status_bar_notification_info_overflow = 0x7f120137;
+        public static final int library_appintro_author = 0x7f120084;
+        public static final int library_appintro_authorWebsite = 0x7f120085;
+        public static final int library_appintro_classPath = 0x7f120086;
+        public static final int library_appintro_isOpenSource = 0x7f120087;
+        public static final int library_appintro_libraryDescription = 0x7f120088;
+        public static final int library_appintro_libraryName = 0x7f120089;
+        public static final int library_appintro_libraryVersion = 0x7f12008a;
+        public static final int library_appintro_libraryWebsite = 0x7f12008b;
+        public static final int library_appintro_licenseId = 0x7f12008c;
+        public static final int library_appintro_repositoryLink = 0x7f12008d;
+        public static final int search_menu_title = 0x7f120135;
+        public static final int status_bar_notification_info_overflow = 0x7f120139;
     }
     public static final class style {
         private style() {}

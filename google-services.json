@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:704609581346:android:3ac13871cb116066",
         "android_client_info": {
-          "package_name": "com.saltechdigital.dliver"
+          "package_name": "com.saltechdigital.pizzeria"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "704609581346-ob7vlun9c6j1kk4aan2rb15ji6it3a5u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.saltechdigital.dliver",
+            "package_name": "com.saltechdigital.pizzeria",
             "certificate_hash": "c68eff4a78811f213db0b7cd30dc01c9fcb3cefc"
           }
         },

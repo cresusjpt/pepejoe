@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.saltechdigital.dliver">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.saltechdigital.pizzeria">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -43,7 +44,8 @@
         android:roundIcon="@mipmap/ic_launcherer_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".WebviewInAppActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -63,7 +65,7 @@
             android:parentActivityName=".OrderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.OrderActivity" />
+                android:value="com.saltechdigital.pizzeria.OrderActivity" />
         </activity>
         <activity
             android:name=".ValidLivraisonActivity"
@@ -71,7 +73,7 @@
             android:parentActivityName=".OrderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.OrderActivity" />
+                android:value="com.saltechdigital.pizzeria.OrderActivity" />
         </activity>
         <activity
             android:name=".DeliverLocationActivity"
@@ -79,14 +81,14 @@
             android:parentActivityName=".OrderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.OrderActivity" />
+                android:value="com.saltechdigital.pizzeria.OrderActivity" />
         </activity>
         <activity
             android:name=".TimeLineActivityJ"
             android:parentActivityName=".OrderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.OrderActivity" />
+                android:value="com.saltechdigital.pizzeria.OrderActivity" />
         </activity>
         <activity android:name=".TimeLineActivity" />
         <activity
@@ -94,7 +96,7 @@
             android:parentActivityName=".PrincipaleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+                android:value="com.saltechdigital.pizzeria.PrincipaleActivity" />
         </activity>
         <activity
             android:name=".ScrollingActivity"
@@ -105,7 +107,7 @@
             android:parentActivityName=".PrincipaleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+                android:value="com.saltechdigital.pizzeria.PrincipaleActivity" />
         </activity>
         <activity
             android:name=".BillActivity"
@@ -113,14 +115,14 @@
             android:parentActivityName=".PrincipaleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+                android:value="com.saltechdigital.pizzeria.PrincipaleActivity" />
         </activity>
         <activity
             android:name=".OrderActivity"
             android:parentActivityName=".PrincipaleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+                android:value="com.saltechdigital.pizzeria.PrincipaleActivity" />
         </activity>
         <activity
             android:name=".SettingsActivity"
@@ -129,7 +131,7 @@
             android:parentActivityName=".PrincipaleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+                android:value="com.saltechdigital.pizzeria.PrincipaleActivity" />
         </activity>
         <activity
             android:name=".AboutActivity"
@@ -137,7 +139,7 @@
             android:parentActivityName=".PrincipaleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+                android:value="com.saltechdigital.pizzeria.PrincipaleActivity" />
         </activity>
         <activity
             android:name=".NotificationActivity"
@@ -145,7 +147,7 @@
             android:parentActivityName=".PrincipaleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.PrincipaleActivity" />
+                android:value="com.saltechdigital.pizzeria.PrincipaleActivity" />
         </activity>
         <activity
             android:name=".PaymentWayActivity"
@@ -194,7 +196,7 @@
             android:parentActivityName=".CheckAuthActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.saltechdigital.dliver.CheckAuthActivity" />
+                android:value="com.saltechdigital.pizzeria.CheckAuthActivity" />
         </activity>
         <activity android:name=".CheckAuthActivity">
             <intent-filter>

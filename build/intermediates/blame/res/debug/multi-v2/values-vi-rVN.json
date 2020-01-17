@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi-rVN\\values-vi-rVN.xml",
+            "outputFile": "F:\\Langage\\Android\\Dliver\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi-rVN\\values-vi-rVN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\ba19e4e492db7086f4e2cb59a118b724\\res\\values-vi-rVN\\values-vi-rVN.xml",
+                    "source": "C:\\Users\\JEANPAULTOSSOU\\.gradle\\caches\\transforms-2\\files-2.1\\e4302a1e2c8d76d13d1c48e563c3ba58\\AppIntro-v5.1.0\\res\\values-vi-rVN\\values-vi-rVN.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

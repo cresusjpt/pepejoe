@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rCA\\values-en-rCA.xml",
+            "outputFile": "F:\\Langage\\Android\\Dliver\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rCA\\values-en-rCA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\cb1e9415953fd8284b42e039f33ef056\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\JEANPAULTOSSOU\\.gradle\\caches\\transforms-2\\files-2.1\\59d0b284c0866794918f82bde1f0b1e6\\appcompat-1.1.0-alpha05\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\4bfdef401f8d6f01acf98120b89f1e07\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\JEANPAULTOSSOU\\.gradle\\caches\\transforms-2\\files-2.1\\d57fd08d8ef8bc4aea647aa1c690f1aa\\core-1.1.0-beta01\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

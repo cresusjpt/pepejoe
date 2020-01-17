@@ -1,10 +1,29 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "F:\\Langage\\Android\\Dliver\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\bcba1548379253c8119b238f2321d7f2\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\JEANPAULTOSSOU\\.gradle\\caches\\transforms-2\\files-2.1\\59d0b284c0866794918f82bde1f0b1e6\\appcompat-1.1.0-alpha05\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "219",
+                        "endLines": "7",
+                        "endColumns": "12",
+                        "endOffsets": "387"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\JEANPAULTOSSOU\\.gradle\\caches\\transforms-2\\files-2.1\\601d97a74bca4f2c6acdcf45b4b1f284\\materialdatetimepicker-4.1.2\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2,3,6,9",
                         "startColumns": "4,4,4,4",
@@ -23,32 +42,13 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\4bfdef401f8d6f01acf98120b89f1e07\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\JEANPAULTOSSOU\\.gradle\\caches\\transforms-2\\files-2.1\\d57fd08d8ef8bc4aea647aa1c690f1aa\\core-1.1.0-beta01\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
                         "endColumns": "65",
                         "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Simone Sika\\.gradle\\caches\\transforms-2\\files-2.1\\cb1e9415953fd8284b42e039f33ef056\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "223"
-                    },
-                    "to": {
-                        "startLines": "4",
-                        "startColumns": "4",
-                        "startOffsets": "219",
-                        "endLines": "7",
-                        "endColumns": "12",
-                        "endOffsets": "387"
                     }
                 }
             ]

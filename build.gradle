@@ -1,5 +1,19 @@
 apply plugin: 'com.android.application'
 
+buildscript {
+    repositories{
+        google()
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.3'
+        classpath 'com.android.tools.build:gradle:3.5.3'
+    }
+
+}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -31,7 +45,10 @@ configurations {
 }
 
 repositories {
+    mavenCentral()
+    jcenter()
     maven { url 'https://jitpack.io' }
+    google()
 }
 
 dependencies {
@@ -49,11 +66,11 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0-alpha06'
     implementation 'com.github.AppIntro:AppIntro:v5.1.0'
     implementation 'net.rimoto:intlphoneinput:1.0.1'
-    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.firebase:firebase-core:16.0.9'
     implementation 'com.google.firebase:firebase-auth:17.0.0'
     implementation 'com.google.firebase:firebase-messaging:18.0.0'
-    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
     implementation 'pub.devrel:easypermissions:3.0.0'
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'

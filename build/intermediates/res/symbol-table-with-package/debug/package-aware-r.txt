@@ -2833,7 +2833,6 @@ id password_toggle
 id peekHeight
 id pending_rv
 id percent
-id phone_number
 id pin
 id place_autocomplete_clear_button
 id place_autocomplete_powered_by_google

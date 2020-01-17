@@ -37,7 +37,7 @@
             android:layout_margin="16dp"
             android:orientation="vertical">
 
-            <net.rimoto.intlphoneinput.IntlPhoneInput
+            <!--<net.rimoto.intlphoneinput.IntlPhoneInput
                 android:id="@+id/phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 app:flagPaddingStart="4dp"
                 app:flagPaddingTop="4dp"
                 app:textColor="#000000"
-                app:textSize="14sp" />
+                app:textSize="14sp" />-->
 
             <ProgressBar
                 android:id="@+id/check_progress"

@@ -1,10 +1,10 @@
-#Thu Jan 16 21:37:34 CET 2020
-path.2=classes3.dex
-path.1=classes2.dex
+#Fri Jan 17 14:09:31 CET 2020
+path.2=classes2.dex
+path.1=classes.dex
 path.0=classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=F\:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-base.1=F\:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-base.0=F\:\\LangageAndroid\\AndroidStudioProjects\\Dliver\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.2=F\:\\Langage\\Android\\Dliver\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes2.dex
+base.1=F\:\\Langage\\Android\\Dliver\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.0=F\:\\Langage\\Android\\Dliver\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex

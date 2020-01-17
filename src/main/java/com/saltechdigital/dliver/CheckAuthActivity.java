@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.marcinorlowski.fonty.Fonty;
@@ -25,6 +26,7 @@ import com.saltechdigital.dliver.utils.ConnectionState;
 import net.rimoto.intlphoneinput.IntlPhoneInput;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -35,7 +37,7 @@ public class CheckAuthActivity extends AppCompatActivity {
     public static final String PHONENUMBER = "PHONENUMBER";
 
     private static final String TAG = "JEANPAUL";
-    private IntlPhoneInput phoneNumberInput;
+    //private IntlPhoneInput phoneNumberInput;
     private String phoneNumber;
     private LinearLayout checkAuthView;
     private ProgressBar progressBar;
@@ -55,6 +57,7 @@ public class CheckAuthActivity extends AppCompatActivity {
                     intent.putExtra(PHONENUMBER, phoneNumber);
                     startActivity(intent);
                 } else {
+                    Toast.makeText(CheckAuthActivity.this, "Une erreur s'est produite", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(CheckAuthActivity.this, ConnexionActivity.class);
                     intent.putExtra(PHONENUMBER, phoneNumber);
                     startActivity(intent);
@@ -63,6 +66,7 @@ public class CheckAuthActivity extends AppCompatActivity {
 
             @Override
             public void onError(Throwable e) {
+                Toast.makeText(CheckAuthActivity.this, "Une erreur s'est produite", Toast.LENGTH_SHORT).show();
                 showProgress(false);
                 snack(checkAuthView, getString(R.string.connection_error));
                 Log.w(TAG, "phoneExist onError: " + e.getMessage(), e);
@@ -88,7 +92,7 @@ public class CheckAuthActivity extends AppCompatActivity {
         checkAuthView = findViewById(R.id.check_auth_view);
         progressBar = findViewById(R.id.check_progress);
 
-        phoneNumberInput = findViewById(R.id.phone_number);
+        /*phoneNumberInput = findViewById(R.id.phone_number);
         phoneNumberInput.setOnKeyListener((view, keyCode, keyEvent) -> {
             if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                 // Touche OK sélectionné. a revoir ultérieurement
@@ -96,7 +100,7 @@ public class CheckAuthActivity extends AppCompatActivity {
                 return true;
             }
             return false;
-        });
+        });*/
 
         Button btValid = findViewById(R.id.btn_valid);
         btValid.setOnClickListener(this::btClickAction);
@@ -106,8 +110,9 @@ public class CheckAuthActivity extends AppCompatActivity {
     }
 
     private void btClickAction(View view) {
-        if (phoneNumberInput.isValid() && ConnectionState.isConnected(getApplicationContext())) {
-            phoneNumber = phoneNumberInput.getNumber();
+        if (/*phoneNumberInput.isValid() && */ConnectionState.isConnected(getApplicationContext())) {
+            phoneNumber = "+22892109283";
+            //phoneNumber = phoneNumberInput.getNumber();
             Client client = new Client();
             client.setPhone1(phoneNumber);
             showProgress(true);

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.sangcomz:StickyTimeLine:v0.0.20@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b05289ad754c817e9a71a8366cae6861/StickyTimeLine-v0.0.20/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b05289ad754c817e9a71a8366cae6861/StickyTimeLine-v0.0.20/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.sangcomz/StickyTimeLine/v0.0.20/a755db5f3974887ae6ebfb884d00bb9e9851c9aa/StickyTimeLine-v0.0.20-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

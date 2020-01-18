@@ -10,28 +10,42 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.marcinorlowski.fonty.Fonty;
+import com.saltechdigital.pizzeria.adapter.PizzaAdapter;
+import com.saltechdigital.pizzeria.adapter.ServicesAdapter;
 import com.saltechdigital.pizzeria.utils.Config;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ViewLivraisonListActivity extends AppCompatActivity {
 
-    private FloatingActionButton fab;
-    private CoordinatorLayout view;
+    @BindView(R.id.fab) FloatingActionButton fab;
+    @BindView(R.id.view) CoordinatorLayout view;
 
-    private RecyclerView serviceRecycleView;
-    private TextView tagText;
-    private TextView emptyText;
-    private CardView cardView;
+    @BindView(R.id.view_list) RecyclerView viewRecycleView;
+    @BindView(R.id.tag_text) TextView tagText;
+    @BindView(R.id.visible_text) TextView emptyText;
+    @BindView(R.id.tag_content) CardView cardView;
 
     private String serviceTag;
+
+    List<String> stringList = new ArrayList<>();
+
+    private PizzaAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_livraison_list);
+        ButterKnife.bind(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,7 +67,6 @@ public class ViewLivraisonListActivity extends AppCompatActivity {
             tagText.setText(R.string.pharmacy_tag);
         }
         setTitle(serviceTag);
-        fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> Snackbar.make(view, R.string.special_demande, Snackbar.LENGTH_LONG)
                 .setAction(R.string.rb_yes, view -> {
                     Intent intentStart = new Intent(ViewLivraisonListActivity.this, CreateLivraisonActivity.class);
@@ -65,12 +78,27 @@ public class ViewLivraisonListActivity extends AppCompatActivity {
     }
 
     private void inflateViews() {
-        view = findViewById(R.id.view);
-        tagText = findViewById(R.id.tag_text);
-        emptyText = findViewById(R.id.visible_text);
-        cardView = findViewById(R.id.tag_content);
-        serviceRecycleView = findViewById(R.id.service_list);
 
+        stringList.add("La Jingle bells");
+        stringList.add("Chaudière");
+        stringList.add("Charcutaille");
+        stringList.add("Paysous");
+        stringList.add("Pepe Burger");
+        stringList.add("La Chargée");
+        stringList.add("St Jacques");
+        stringList.add("Duo Saumons");
+        stringList.add("Délice de Foie Gras");
+        stringList.add("Montagnarde");
+        stringList.add("4 Fromages");
+        stringList.add("Merguez");
+        stringList.add("Royale");
+        stringList.add("Dauphine");
+        stringList.add("Végétarienne");
+        stringList.add("Poulette");
+
+        adapter = new PizzaAdapter(this, stringList);
+        viewRecycleView.setLayoutManager(new GridLayoutManager(this, 2));
+        viewRecycleView.setAdapter(adapter);
         /*
         TODO
         check later if recycler adapter is empty for showing or not the textview

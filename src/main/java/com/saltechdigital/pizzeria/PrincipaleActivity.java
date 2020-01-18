@@ -25,6 +25,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.marcinorlowski.fonty.Fonty;
+import com.saltechdigital.pizzeria.adapter.PizzaAdapter;
 import com.saltechdigital.pizzeria.adapter.ServicesAdapter;
 import com.saltechdigital.pizzeria.models.Services;
 import com.saltechdigital.pizzeria.storage.SessionManager;
@@ -36,83 +37,97 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PrincipaleActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private RecyclerView recyclerView;
+    @BindView(R.id.rv_principale) RecyclerView recyclerView;
+    @BindView(R.id.toolbar) Toolbar toolbar;
     private ServicesAdapter adapter;
 
     private ImageView profile;
     private TextView profileName;
     private TextView profileEmail;
 
+    @BindView(R.id.drawer_layout) DrawerLayout drawer;
+    @BindView(R.id.nav_view) NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principale);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
+
         setSupportActionBar(toolbar);
-        inflateViews();
         principaleBinder();
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         populateView(navigationView);
 
         Fonty.setFonts(this);
     }
 
-    private void inflateViews() {
-        recyclerView = findViewById(R.id.rv_principale);
-    }
-
     private void principaleBinder() {
         List<Services> ourServices = new ArrayList<>();
 
-        Services pharmacy = new Services();
-        pharmacy.setName(getString(R.string.pharmacy));
-        int[] pharmacyImages = {R.drawable.pharmacie, R.drawable.pharmacie_1/*, R.drawable.pharmacie_2, R.drawable.pharmacie_3, R.drawable.pharmacie_4*/};
-        pharmacy.setImages(pharmacyImages);
-        pharmacy.setTag("pharmacie");
-        ourServices.add(pharmacy);
+        Services pizza = new Services();
+        pizza.setName(getString(R.string.pizzas));
+        int[] pizzaImages = {R.drawable.pizza, R.drawable.pizza_1/*, R.drawable.pharmacie_2, R.drawable.pharmacie_3, R.drawable.pharmacie_4*/};
+        pizza.setImages(pizzaImages);
+        pizza.setTag("pizzas");
+        ourServices.add(pizza);
 
-        Services market = new Services();
-        market.setName(getString(R.string.market));
-        int[] marketImages = {R.drawable.market, R.drawable.market_1/*, R.drawable.market_2, R.drawable.market_3, R.drawable.market_4*/};
-        market.setImages(marketImages);
-        market.setTag("marché");
-        ourServices.add(market);
+        Services burger = new Services();
+        burger.setName(getString(R.string.burger));
+        int[] burgerImages = {R.drawable.burger, R.drawable.burger_1/*, R.drawable.market_2, R.drawable.market_3, R.drawable.market_4*/};
+        burger.setImages(burgerImages);
+        burger.setTag("burger");
+        ourServices.add(burger);
 
-        Services repas = new Services();
-        repas.setName(getString(R.string.repas));
-        int[] repasImages = {R.drawable.food, R.drawable.food_1/*, R.drawable.food_2, R.drawable.food_3, R.drawable.food_4*/};
-        repas.setImages(repasImages);
-        repas.setTag("repas");
-        ourServices.add(repas);
+        Services verdures = new Services();
+        verdures.setName(getString(R.string.verdure));
+        int[] verdureImages = {R.drawable.food, R.drawable.salad/*, R.drawable.food_2, R.drawable.food_3, R.drawable.food_4*/};
+        verdures.setImages(verdureImages);
+        verdures.setTag("verdure");
+        ourServices.add(verdures);
 
-        Services boisson = new Services();
-        boisson.setName(getString(R.string.boisson));
-        int[] boissonImages = {R.drawable.drink, R.drawable.drink_1/*, R.drawable.drink_2*/};
-        boisson.setImages(boissonImages);
-        boisson.setTag("boisson");
-        ourServices.add(boisson);
+        Services amuseBouches = new Services();
+        amuseBouches.setName(getString(R.string.amusebouche));
+        int[] amuseImages = {R.drawable.ambouche, R.drawable.ambouche_1/*, R.drawable.drink_2*/};
+        amuseBouches.setImages(amuseImages);
+        amuseBouches.setTag("amusebouche");
+        ourServices.add(amuseBouches);
 
-        Services coursier = new Services();
-        coursier.setName(getString(R.string.coursier));
-        int[] coursierImages = {R.drawable.deliver, R.drawable.deliver_1/*, R.drawable.deliver_2, R.drawable.deliver_3*/};
-        coursier.setImages(coursierImages);
-        coursier.setTag("coursier");
-        ourServices.add(coursier);
+        Services gourmandises = new Services();
+        gourmandises.setName(getString(R.string.gourmandise));
+        int[] gourmandiseImages = {R.drawable.gourmandise, R.drawable.gourmandise, R.drawable.gourmandise_2/*, R.drawable.deliver_3*/};
+        gourmandises.setImages(gourmandiseImages);
+        gourmandises.setTag("gourmandise");
+        ourServices.add(gourmandises);
+
+        Services desalterants = new Services();
+        desalterants.setName(getString(R.string.desalterant));
+        int[] desalterantImages = {R.drawable.boisson, R.drawable.boisson_1/*, R.drawable.deliver_2, R.drawable.deliver_3*/};
+        desalterants.setImages(desalterantImages);
+        desalterants.setTag("desalterant");
+        ourServices.add(desalterants);
+
+        Services menus = new Services();
+        menus.setName(getString(R.string.menus));
+        int[] menusImages = {R.drawable.menu, /*R.drawable.deliver_1, R.drawable.deliver_2, R.drawable.deliver_3*/};
+        menus.setImages(menusImages);
+        menus.setTag("menus");
+        ourServices.add(menus);
 
         Services magic = new Services();
         magic.setName(getString(R.string.autre));
-        int[] magicImages = {R.drawable.deliverfinal};
+        int[] magicImages = {R.drawable.pepejoe};
         magic.setImages(magicImages);
         magic.setTag("magic");
         ourServices.add(magic);
@@ -150,7 +165,6 @@ public class PrincipaleActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -178,7 +192,6 @@ public class PrincipaleActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NotNull MenuItem item) {
         // Handle navigation view item clicks here.
@@ -223,7 +236,6 @@ public class PrincipaleActivity extends AppCompatActivity
                 break;
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

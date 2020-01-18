@@ -24,6 +24,9 @@ import com.synnapps.carouselview.CarouselView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder> {
 
     private Context context;
@@ -66,21 +69,18 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private CardView mItemView;
-        private CardView cardv;
-        private CarouselView carouselView;
-        private TextView deliverType;
+        @BindView(R.id.item_view) CardView mItemView;
+        @BindView(R.id.cardv) CardView cardv;
+        @BindView(R.id.carouselView) CarouselView carouselView;
+        @BindView(R.id.deliver_type) TextView deliverType;
 
         private Services current;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            mItemView = itemView.findViewById(R.id.item_view);
-            carouselView = itemView.findViewById(R.id.carouselView);
-            deliverType = itemView.findViewById(R.id.deliver_type);
-            cardv = itemView.findViewById(R.id.cardv);
-            deliverType.setOnClickListener(v -> serviceClick());
+            ButterKnife.bind(this,itemView);
 
+            deliverType.setOnClickListener(v -> serviceClick());
             carouselView.setOnClickListener(v -> serviceClick());
             carouselView.setImageClickListener(position -> serviceClick());
         }

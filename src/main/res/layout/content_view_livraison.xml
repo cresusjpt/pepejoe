@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_view_livraison_list">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/service_list"
+        android:id="@+id/view_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

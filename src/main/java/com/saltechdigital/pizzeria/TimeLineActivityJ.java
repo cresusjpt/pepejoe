@@ -12,8 +12,8 @@ import com.saltechdigital.pizzeria.adapter.PendingOrderAdapter;
 import com.saltechdigital.pizzeria.adapter.TimeLineAdapter;
 import com.saltechdigital.pizzeria.models.Livraison;
 import com.saltechdigital.pizzeria.models.Process;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class TimeLineActivityJ extends AppCompatActivity {
 
     private TimeLineRecyclerView recyclerView;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private RecyclerSectionItemDecoration.SectionCallback getSectionCallback(final List<Process> processList) {
         return new RecyclerSectionItemDecoration.SectionCallback() {
@@ -102,7 +102,7 @@ public class TimeLineActivityJ extends AppCompatActivity {
                     compositeDisposable = new CompositeDisposable();
                 }
                 compositeDisposable.add(
-                        deliverApi.getProcessByLivraison(idLivraison)
+                        pizzaApi.getProcessByLivraison(idLivraison)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribeWith(getProcesses())
@@ -139,7 +139,7 @@ public class TimeLineActivityJ extends AppCompatActivity {
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         context = this;
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
         intent = getIntent();
         idLivraison = intent.getIntExtra(PendingOrderAdapter.LIVRAISON_ID, 0);
         inflateView();
@@ -157,7 +157,7 @@ public class TimeLineActivityJ extends AppCompatActivity {
 
     private void databind() {
         compositeDisposable.add(
-                deliverApi.getLivraison(idLivraison)
+                pizzaApi.getLivraison(idLivraison)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeWith(getLivraison())

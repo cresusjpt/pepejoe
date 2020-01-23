@@ -23,8 +23,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.pizzeria.models.User;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.Config;
 import com.saltechdigital.pizzeria.utils.ConnectionState;
 
@@ -55,7 +55,7 @@ public class InscriptionActivity extends AppCompatActivity implements View.OnCli
     private ProgressBar progressBar;
     private ScrollView scrollView;
 
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -112,7 +112,7 @@ public class InscriptionActivity extends AppCompatActivity implements View.OnCli
         btInscription.setOnClickListener(this);
         socialNetwork.setOnClickListener(this);
 
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
 
         Fonty.setFonts(this);
     }
@@ -231,7 +231,7 @@ public class InscriptionActivity extends AppCompatActivity implements View.OnCli
 
             if (ConnectionState.isConnected(InscriptionActivity.this)){
                 compositeDisposable.add(
-                        deliverApi.register(user)
+                        pizzaApi.register(user)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribeWith(registerObserver())

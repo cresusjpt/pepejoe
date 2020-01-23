@@ -22,8 +22,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.pizzeria.models.User;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.Config;
 
 import org.jetbrains.annotations.NotNull;
@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements EasyPermission
     private Options options;
 
     private Context context;
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private ProgressDialog progressDialog;
 
@@ -90,7 +90,7 @@ public class ProfileActivity extends AppCompatActivity implements EasyPermission
         actionBar.setDisplayHomeAsUpEnabled(true);
         inflateViews();
         getSessionManager();
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
 
         fabView.setOnClickListener(v -> {
             String[] perms = {
@@ -117,8 +117,8 @@ public class ProfileActivity extends AppCompatActivity implements EasyPermission
     private void userPhoto() {
         String photo = new SessionManager(context).getUserPhoto();
         Glide.with(ProfileActivity.this)
-                .load(DeliverApi.WEBENDPOINT + photo)
-                //.load(DeliverApi.WEBENDPOINT + "pp_Jean-Paul_TOSSOU.jpg")
+                .load(PizzaApi.WEBENDPOINT + photo)
+                //.load(PizzaApi.WEBENDPOINT + "pp_Jean-Paul_TOSSOU.jpg")
                 .apply(RequestOptions.circleCropTransform())
                 .thumbnail(0.1f)
                 .into(profileView);
@@ -153,7 +153,7 @@ public class ProfileActivity extends AppCompatActivity implements EasyPermission
                     .apply(RequestOptions.circleCropTransform())
                     .into(profileView);
 
-            Call<User> fileUpload = deliverApi.uploadProfilePhoto(fileToUpload, fileName, id);
+            Call<User> fileUpload = pizzaApi.uploadProfilePhoto(fileToUpload, fileName, id);
             fileUpload.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(@NotNull Call<User> call, @NotNull Response<User> response) {

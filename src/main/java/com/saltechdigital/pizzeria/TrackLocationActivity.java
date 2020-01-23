@@ -27,8 +27,8 @@ import com.saltechdigital.pizzeria.adapter.TimeLineAdapter;
 import com.saltechdigital.pizzeria.models.Livraison;
 import com.saltechdigital.pizzeria.models.Process;
 import com.saltechdigital.pizzeria.models.Repere;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.Config;
 import com.saltechdigital.pizzeria.utils.ConnectionState;
 
@@ -49,7 +49,7 @@ public class TrackLocationActivity extends AppCompatActivity implements OnMapRea
     private Process process;
     private Livraison livraison;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
     private List<Polyline> polylines;
     private LatLng chargeLlng = null, dechargeLlng = null;
 
@@ -107,7 +107,7 @@ public class TrackLocationActivity extends AppCompatActivity implements OnMapRea
         setContentView(R.layout.activity_track_location);
         intent = getIntent();
         context = this;
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -142,7 +142,7 @@ public class TrackLocationActivity extends AppCompatActivity implements OnMapRea
         mMap = googleMap;
         if (ConnectionState.isConnected(context)) {
             compositeDisposable.add(
-                    deliverApi.getRepereLivraison(livraison.getId())
+                    pizzaApi.getRepereLivraison(livraison.getId())
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeWith(getRepereByLIvraison())

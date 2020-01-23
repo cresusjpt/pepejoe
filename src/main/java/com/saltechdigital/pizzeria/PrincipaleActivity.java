@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,11 +26,14 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.marcinorlowski.fonty.Fonty;
-import com.saltechdigital.pizzeria.adapter.PizzaAdapter;
 import com.saltechdigital.pizzeria.adapter.ServicesAdapter;
+import com.saltechdigital.pizzeria.database.viewmodel.CategorieViewModel;
+import com.saltechdigital.pizzeria.injections.Injection;
+import com.saltechdigital.pizzeria.injections.ViewModelFactory;
+import com.saltechdigital.pizzeria.models.Categorie;
 import com.saltechdigital.pizzeria.models.Services;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
 import com.saltechdigital.pizzeria.utils.Config;
 
 import org.jetbrains.annotations.NotNull;
@@ -43,25 +47,32 @@ import butterknife.ButterKnife;
 public class PrincipaleActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.rv_principale) RecyclerView recyclerView;
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.rv_principale)
+    RecyclerView recyclerView;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     private ServicesAdapter adapter;
 
     private ImageView profile;
     private TextView profileName;
     private TextView profileEmail;
 
-    @BindView(R.id.drawer_layout) DrawerLayout drawer;
-    @BindView(R.id.nav_view) NavigationView navigationView;
+    private CategorieViewModel categorieViewModel;
+
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
+    @BindView(R.id.nav_view)
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principale);
         ButterKnife.bind(this);
+        configViewModel();
 
         setSupportActionBar(toolbar);
-        principaleBinder();
+        getAllCategorie();
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -73,50 +84,56 @@ public class PrincipaleActivity extends AppCompatActivity
         Fonty.setFonts(this);
     }
 
-    private void principaleBinder() {
+    private void configViewModel() {
+        ViewModelFactory viewModelFactory = Injection.provideModelFactory(this);
+        this.categorieViewModel = ViewModelProviders.of(this, viewModelFactory).get(CategorieViewModel.class);
+        this.categorieViewModel.init(this);
+    }
+
+    private void getAllCategorie() {
+        this.categorieViewModel.getListCategories().observe(this, this::principaleBinder);
+    }
+
+    private void principaleBinder(List<Categorie> list) {
         List<Services> ourServices = new ArrayList<>();
 
-        Services pizza = new Services();
-        pizza.setName(getString(R.string.pizzas));
-        int[] pizzaImages = {R.drawable.pizza, R.drawable.pizza_1/*, R.drawable.pharmacie_2, R.drawable.pharmacie_3, R.drawable.pharmacie_4*/};
-        pizza.setImages(pizzaImages);
-        pizza.setTag("pizzas");
-        ourServices.add(pizza);
-
-        Services burger = new Services();
-        burger.setName(getString(R.string.burger));
-        int[] burgerImages = {R.drawable.burger, R.drawable.burger_1/*, R.drawable.market_2, R.drawable.market_3, R.drawable.market_4*/};
-        burger.setImages(burgerImages);
-        burger.setTag("burger");
-        ourServices.add(burger);
-
-        Services verdures = new Services();
-        verdures.setName(getString(R.string.verdure));
-        int[] verdureImages = {R.drawable.food, R.drawable.salad/*, R.drawable.food_2, R.drawable.food_3, R.drawable.food_4*/};
-        verdures.setImages(verdureImages);
-        verdures.setTag("verdure");
-        ourServices.add(verdures);
-
-        Services amuseBouches = new Services();
-        amuseBouches.setName(getString(R.string.amusebouche));
-        int[] amuseImages = {R.drawable.ambouche, R.drawable.ambouche_1/*, R.drawable.drink_2*/};
-        amuseBouches.setImages(amuseImages);
-        amuseBouches.setTag("amusebouche");
-        ourServices.add(amuseBouches);
-
-        Services gourmandises = new Services();
-        gourmandises.setName(getString(R.string.gourmandise));
-        int[] gourmandiseImages = {R.drawable.gourmandise, R.drawable.gourmandise, R.drawable.gourmandise_2/*, R.drawable.deliver_3*/};
-        gourmandises.setImages(gourmandiseImages);
-        gourmandises.setTag("gourmandise");
-        ourServices.add(gourmandises);
-
-        Services desalterants = new Services();
-        desalterants.setName(getString(R.string.desalterant));
-        int[] desalterantImages = {R.drawable.boisson, R.drawable.boisson_1/*, R.drawable.deliver_2, R.drawable.deliver_3*/};
-        desalterants.setImages(desalterantImages);
-        desalterants.setTag("desalterant");
-        ourServices.add(desalterants);
+        for (Categorie categorie : list) {
+            Services service = new Services();
+            service.setId(categorie.getIdCategorie());
+            service.setName(categorie.getNomCategorie());
+            service.setTag(categorie.getTag());
+            switch (categorie.getTag()) {
+                case "pizzas":
+                    int[] pizzaImages = {R.drawable.pizza, R.drawable.pizza_1/*, R.drawable.pharmacie_2, R.drawable.pharmacie_3, R.drawable.pharmacie_4*/};
+                    service.setImages(pizzaImages);
+                    break;
+                case "burgers":
+                    int[] burgerImages = {R.drawable.burger, R.drawable.burger_1/*, R.drawable.market_2, R.drawable.market_3, R.drawable.market_4*/};
+                    service.setImages(burgerImages);
+                    break;
+                case "verdures":
+                    int[] verdureImages = {R.drawable.food, R.drawable.salad/*, R.drawable.food_2, R.drawable.food_3, R.drawable.food_4*/};
+                    service.setImages(verdureImages);
+                    break;
+                case "amusebouches":
+                    int[] amuseImages = {R.drawable.ambouche, R.drawable.ambouche_1/*, R.drawable.drink_2*/};
+                    service.setImages(amuseImages);
+                    break;
+                case "gourmandises":
+                    int[] gourmandiseImages = {R.drawable.gourmandise, R.drawable.gourmandise, R.drawable.gourmandise_2/*, R.drawable.deliver_3*/};
+                    service.setImages(gourmandiseImages);
+                    break;
+                case "desalterants":
+                    int[] desalterantImages = {R.drawable.boisson, R.drawable.boisson_1/*, R.drawable.deliver_2, R.drawable.deliver_3*/};
+                    service.setImages(desalterantImages);
+                    break;
+                default:
+                    int[] magicImages = {R.drawable.pepejoe};
+                    service.setImages(magicImages);
+                    break;
+            }
+            ourServices.add(service);
+        }
 
         Services menus = new Services();
         menus.setName(getString(R.string.menus));
@@ -153,14 +170,14 @@ public class PrincipaleActivity extends AppCompatActivity
         profileEmail.setText(sessionManager.getUserMail());
 
         String photo = new SessionManager(this).getUserPhoto();
-        photo = DeliverApi.WEBENDPOINT + photo;
+        photo = PizzaApi.WEBENDPOINT + photo;
         Glide.with(PrincipaleActivity.this)
-                //.load(DeliverApi.WEBENDPOINT + "pp_Jean-Paul_TOSSOU.jpg")
+                //.load(PizzaApi.WEBENDPOINT + "pp_Jean-Paul_TOSSOU.jpg")
                 .load(photo)
                 .apply(RequestOptions.circleCropTransform())
                 .thumbnail(0.1f)
                 .into(profile);
-        Log.d(Config.TAG, "populateView: " + DeliverApi.WEBENDPOINT + photo);
+        Log.d(Config.TAG, "populateView: " + PizzaApi.WEBENDPOINT + photo);
     }
 
     @Override

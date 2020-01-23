@@ -1,6 +1,9 @@
 package com.saltechdigital.pizzeria.models;
 
-public class Services {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Services implements Parcelable {
 
     private int id;
 
@@ -9,6 +12,27 @@ public class Services {
     private int[] images;
 
     private String tag;
+
+    public Services(){}
+
+    protected Services(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        images = in.createIntArray();
+        tag = in.readString();
+    }
+
+    public static final Creator<Services> CREATOR = new Creator<Services>() {
+        @Override
+        public Services createFromParcel(Parcel in) {
+            return new Services(in);
+        }
+
+        @Override
+        public Services[] newArray(int size) {
+            return new Services[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -40,5 +64,18 @@ public class Services {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeIntArray(images);
+        dest.writeString(tag);
     }
 }

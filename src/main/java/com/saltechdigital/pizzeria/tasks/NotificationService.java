@@ -31,7 +31,7 @@ import io.reactivex.schedulers.Schedulers;
 public class NotificationService extends FirebaseMessagingService {
 
     private CompositeDisposable compositeDisposable;
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private DisposableSingleObserver<Notifications> addNotification() {
         return new DisposableSingleObserver<Notifications>() {
@@ -52,7 +52,7 @@ public class NotificationService extends FirebaseMessagingService {
     public void onCreate() {
         super.onCreate();
         compositeDisposable = new CompositeDisposable();
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class NotificationService extends FirebaseMessagingService {
             notif.setDescription(remoteMessage.getNotification().getBody());
             notif.setIcon(remoteMessage.getNotification().getIcon());
             compositeDisposable.add(
-                    deliverApi.addNotification(notif)
+                    pizzaApi.addNotification(notif)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeWith(addNotification())

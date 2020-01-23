@@ -21,8 +21,8 @@ import com.saltechdigital.pizzeria.adapter.TimeLineAdapter;
 import com.saltechdigital.pizzeria.models.Livraison;
 import com.saltechdigital.pizzeria.models.Process;
 import com.saltechdigital.pizzeria.models.Repere;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.Config;
 import com.saltechdigital.pizzeria.utils.ConnectionState;
 
@@ -45,7 +45,7 @@ public class DeliverLocationActivity extends AppCompatActivity implements OnMapR
 
     private List<Repere> reperes;
 
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     private DisposableSingleObserver<List<Repere>> getRepereLivraison() {
@@ -120,7 +120,7 @@ public class DeliverLocationActivity extends AppCompatActivity implements OnMapR
         if (ConnectionState.isConnected(context)) {
             progressDialog(true);
             compositeDisposable.add(
-                    deliverApi.getRepereLivraison(livraison.getId())
+                    pizzaApi.getRepereLivraison(livraison.getId())
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeWith(getRepereLivraison())
@@ -142,7 +142,7 @@ public class DeliverLocationActivity extends AppCompatActivity implements OnMapR
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         context = this;
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
         databind();
     }
 

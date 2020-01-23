@@ -33,8 +33,8 @@ import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.pizzeria.adapter.PaymentAdapter;
 import com.saltechdigital.pizzeria.models.Payment;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.Config;
 
 import java.util.List;
@@ -66,7 +66,7 @@ public class PaymentWayActivity extends AppCompatActivity implements View.OnClic
     private PaymentAdapter adapter;
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private ProgressDialog progressDialog;
 
@@ -124,7 +124,7 @@ public class PaymentWayActivity extends AppCompatActivity implements View.OnClic
         inflateViews();
         addPaymentRv.setLayoutManager(new LinearLayoutManager(this));
         addPaymentRv.setAdapter(adapter);
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
 
         dataBind(true);
         addWay.setOnClickListener(this);
@@ -188,7 +188,7 @@ public class PaymentWayActivity extends AppCompatActivity implements View.OnClic
             showProgress(true);
         }
         compositeDisposable.add(
-                deliverApi.getPayment(new SessionManager(this).getClientID())
+                pizzaApi.getPayment(new SessionManager(this).getClientID())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeOn(Schedulers.io())
                         .subscribeWith(getPayment())
@@ -292,7 +292,7 @@ public class PaymentWayActivity extends AppCompatActivity implements View.OnClic
                 payment.setExpire(bcExpire);
                 showProgressDialog(true);
                 compositeDisposable.add(
-                        deliverApi.addPayment(payment)
+                        pizzaApi.addPayment(payment)
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribeOn(Schedulers.io())
                                 .subscribeWith(addPayment())
@@ -331,7 +331,7 @@ public class PaymentWayActivity extends AppCompatActivity implements View.OnClic
                 payment.setPhoneNumber(mbPhone);
                 showProgressDialog(true);
                 compositeDisposable.add(
-                        deliverApi.addPayment(payment)
+                        pizzaApi.addPayment(payment)
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribeOn(Schedulers.io())
                                 .subscribeWith(addPayment())

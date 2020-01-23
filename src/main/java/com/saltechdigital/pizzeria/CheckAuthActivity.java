@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -19,11 +18,9 @@ import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.pizzeria.models.Client;
 import com.saltechdigital.pizzeria.storage.AccountManagerUtils;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.ConnectionState;
-
-import net.rimoto.intlphoneinput.IntlPhoneInput;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,7 +39,7 @@ public class CheckAuthActivity extends AppCompatActivity {
     private LinearLayout checkAuthView;
     private ProgressBar progressBar;
 
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -105,7 +102,7 @@ public class CheckAuthActivity extends AppCompatActivity {
         Button btValid = findViewById(R.id.btn_valid);
         btValid.setOnClickListener(this::btClickAction);
 
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
         Fonty.setFonts(this);
     }
 
@@ -117,7 +114,7 @@ public class CheckAuthActivity extends AppCompatActivity {
             client.setPhone1(phoneNumber);
             showProgress(true);
             compositeDisposable.add(
-                    deliverApi.phoneExist(client)
+                    pizzaApi.phoneExist(client)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeWith(phoneExistObserver())

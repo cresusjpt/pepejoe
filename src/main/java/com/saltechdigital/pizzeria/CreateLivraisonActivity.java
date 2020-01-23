@@ -44,8 +44,8 @@ import com.saltechdigital.pizzeria.models.Process;
 import com.saltechdigital.pizzeria.models.Repere;
 import com.saltechdigital.pizzeria.models.User;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.Config;
 import com.saltechdigital.pizzeria.utils.Utils;
 
@@ -143,7 +143,7 @@ public class CreateLivraisonActivity extends AppCompatActivity implements View.O
     private LatLng chargmentLatLng;
     private LatLng destinationtLatLng;
 
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private int repereChargement;
     private int repereDechargement;
@@ -178,7 +178,7 @@ public class CreateLivraisonActivity extends AppCompatActivity implements View.O
                     repere.setLatitude(destinationtLatLng.latitude);
                     repere.setLongitude(destinationtLatLng.longitude);
                     compositeDisposable.add(
-                            deliverApi.addRepere(repere)
+                            pizzaApi.addRepere(repere)
                                     .observeOn(AndroidSchedulers.mainThread())
                                     .subscribeOn(Schedulers.io())
                                     .subscribeWith(addRepere())
@@ -220,7 +220,7 @@ public class CreateLivraisonActivity extends AppCompatActivity implements View.O
                     int validate = random.nextInt((99999 - 10000) + 1) + 10000;
                     livraison.setValidate("" + validate);
                     compositeDisposable.add(
-                            deliverApi.createLivraison(livraison)
+                            pizzaApi.createLivraison(livraison)
                                     .observeOn(AndroidSchedulers.mainThread())
                                     .subscribeOn(Schedulers.io())
                                     .subscribeWith(createLivraisonObserver())
@@ -272,7 +272,7 @@ public class CreateLivraisonActivity extends AppCompatActivity implements View.O
                     process.setEtat(0);
                     Log.d(Config.TAG, "process: adding" + process.getTag());
                     compositeDisposable.add(
-                            deliverApi.addProcess(process)
+                            pizzaApi.addProcess(process)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                                     .subscribeWith(addProcess())
@@ -288,7 +288,7 @@ public class CreateLivraisonActivity extends AppCompatActivity implements View.O
                         RequestBody fileName = RequestBody.create(MediaType.parse("text/plain"), file.getName());
                         RequestBody id = RequestBody.create(MediaType.parse("text/plain"), "" + value.getId());
 
-                        Call<User> fileUpload = deliverApi.uploadLivraisonResource(fileToUpload, fileName, id);
+                        Call<User> fileUpload = pizzaApi.uploadLivraisonResource(fileToUpload, fileName, id);
                         fileUpload.enqueue(new Callback<User>() {
                             @Override
                             public void onResponse(@NotNull Call<User> call, @NotNull Response<User> response) {
@@ -375,7 +375,7 @@ public class CreateLivraisonActivity extends AppCompatActivity implements View.O
         });
 
 
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
         Fonty.setFonts(this);
     }
 
@@ -545,7 +545,7 @@ public class CreateLivraisonActivity extends AppCompatActivity implements View.O
             repere.setLongitude(chargmentLatLng.longitude);
             Log.d(Config.TAG, "sendLivraison: calling addRepere disposable");
             compositeDisposable.add(
-                    deliverApi.addRepere(repere)
+                    pizzaApi.addRepere(repere)
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeOn(Schedulers.io())
                             .subscribeWith(addRepere())

@@ -92,7 +92,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
             } else {
                 intent = new Intent(context, ViewLivraisonListActivity.class);
             }
-            intent.putExtra(Config.TAG, current.getTag());
+            intent.putExtra(Config.TAG, current);
             context.startActivity(intent);
         }
 

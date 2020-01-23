@@ -106,7 +106,7 @@
 52        android:allowBackup="true"
 52-->F:\Langage\Android\PepeJoe\src\main\AndroidManifest.xml:40:9-35
 53        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-53-->[androidx.core:core:1.1.0-beta01] C:\Users\JEANPAULTOSSOU\.gradle\caches\transforms-2\files-2.1\d57fd08d8ef8bc4aea647aa1c690f1aa\core-1.1.0-beta01\AndroidManifest.xml:22:18-86
+53-->[androidx.core:core:1.1.0] C:\Users\JEANPAULTOSSOU\.gradle\caches\transforms-2\files-2.1\53d2545f941c8440d3b0a0969af4d2c0\core-1.1.0\AndroidManifest.xml:24:18-86
 54        android:debuggable="true"
 55        android:hardwareAccelerated="true"
 55-->F:\Langage\Android\PepeJoe\src\main\AndroidManifest.xml:41:9-43
@@ -653,6 +653,17 @@
 349-->[pub.devrel:easypermissions:3.0.0] C:\Users\JEANPAULTOSSOU\.gradle\caches\transforms-2\files-2.1\e951d410f6ce512562dd42d1dcc9f5b8\easypermissions-3.0.0\AndroidManifest.xml:15:13-29
 350            android:theme="@style/EasyPermissions.Transparent" />
 350-->[pub.devrel:easypermissions:3.0.0] C:\Users\JEANPAULTOSSOU\.gradle\caches\transforms-2\files-2.1\e951d410f6ce512562dd42d1dcc9f5b8\easypermissions-3.0.0\AndroidManifest.xml:16:13-63
-351    </application>
-352
-353</manifest>
+351
+352        <provider
+352-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\JEANPAULTOSSOU\.gradle\caches\transforms-2\files-2.1\e658f825c6d192ec2eb81ff3d74e9ad4\lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+353            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+353-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\JEANPAULTOSSOU\.gradle\caches\transforms-2\files-2.1\e658f825c6d192ec2eb81ff3d74e9ad4\lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+354            android:authorities="com.saltechdigital.pizzeria.lifecycle-process"
+354-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\JEANPAULTOSSOU\.gradle\caches\transforms-2\files-2.1\e658f825c6d192ec2eb81ff3d74e9ad4\lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+355            android:exported="false"
+355-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\JEANPAULTOSSOU\.gradle\caches\transforms-2\files-2.1\e658f825c6d192ec2eb81ff3d74e9ad4\lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+356            android:multiprocess="true" />
+356-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\JEANPAULTOSSOU\.gradle\caches\transforms-2\files-2.1\e658f825c6d192ec2eb81ff3d74e9ad4\lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+357    </application>
+358
+359</manifest>

@@ -21,8 +21,8 @@ import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.pizzeria.adapter.PendingOrderAdapter;
 import com.saltechdigital.pizzeria.models.Livraison;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.ConnectionState;
 
 import java.util.List;
@@ -36,7 +36,7 @@ import io.reactivex.schedulers.Schedulers;
 public class PendingOrder extends Fragment {
     private RecyclerView pendingRecycler;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
     private Context context;
     private ProgressDialog progressDialog;
 
@@ -77,7 +77,7 @@ public class PendingOrder extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         context = getContext();
-        deliverApi = DeliverApiService.createDeliverApi(getContext());
+        pizzaApi = PizzaApiService.createDeliverApi(getContext());
         inflateViews(Objects.requireNonNull(getActivity()));
         databind();
     }
@@ -103,7 +103,7 @@ public class PendingOrder extends Fragment {
         if (ConnectionState.isConnected(context)) {
             progressDialog(true);
             compositeDisposable.add(
-                    deliverApi.getPendingLivraison(new SessionManager(getContext()).getClientID())
+                    pizzaApi.getPendingLivraison(new SessionManager(getContext()).getClientID())
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeWith(getPendingLivraisons())

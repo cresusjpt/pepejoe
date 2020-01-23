@@ -17,8 +17,8 @@ import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.pizzeria.adapter.SavedAddressAdapter;
 import com.saltechdigital.pizzeria.models.Address;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.Config;
 
 import java.util.List;
@@ -46,7 +46,7 @@ public class SavedAddressActivity extends AppCompatActivity {
 
     private SavedAddressAdapter addressAdapter;
 
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     private DisposableSingleObserver<List<Address>> getAddress() {
@@ -88,7 +88,7 @@ public class SavedAddressActivity extends AppCompatActivity {
 
         btNewAddress.setOnClickListener(v -> Snackbar.make(viewGeneral, "Implementation en cours", Snackbar.LENGTH_SHORT).show());
 
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
 
         addressRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         //addressRecyclerView.addItemDecoration(new MarginItemDecoration(5));
@@ -147,7 +147,7 @@ public class SavedAddressActivity extends AppCompatActivity {
         }
 
         compositeDisposable.add(
-                deliverApi.getAddress(new SessionManager(this).getClientID())
+                pizzaApi.getAddress(new SessionManager(this).getClientID())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeOn(Schedulers.io())
                         .subscribeWith(getAddress())

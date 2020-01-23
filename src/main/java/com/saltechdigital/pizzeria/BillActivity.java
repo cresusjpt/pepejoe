@@ -18,8 +18,8 @@ import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.pizzeria.adapter.PaymentStatusAdapter;
 import com.saltechdigital.pizzeria.models.PaymentStatus;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.ConnectionState;
 
 import java.util.List;
@@ -32,7 +32,7 @@ import io.reactivex.schedulers.Schedulers;
 public class BillActivity extends AppCompatActivity {
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private RelativeLayout relativeLayout;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -73,7 +73,7 @@ public class BillActivity extends AppCompatActivity {
 
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
-        deliverApi = DeliverApiService.createDeliverApi(context);
+        pizzaApi = PizzaApiService.createDeliverApi(context);
         sessionManager = new SessionManager(context);
 
         Fonty.setFonts(this);
@@ -86,7 +86,7 @@ public class BillActivity extends AppCompatActivity {
     private void databind() {
         if (ConnectionState.isConnected(context)) {
             compositeDisposable.add(
-                    deliverApi.getPaymentStatusByClient(sessionManager.getClientID())
+                    pizzaApi.getPaymentStatusByClient(sessionManager.getClientID())
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeWith(getPaymentStatusByClient())

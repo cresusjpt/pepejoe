@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.saltechdigital.pizzeria.R;
 import com.saltechdigital.pizzeria.models.Notifications;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
 
 import java.util.List;
 
@@ -104,7 +104,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             notifDate.setText(current.getDate());
             notifDesc.setText(notifications.getDescription());
             Glide.with(context)
-                    .load(DeliverApi.BASEENDPOINT + DeliverApi.RESFOLDER + notifications.getIcon())
+                    .load(PizzaApi.BASEENDPOINT + PizzaApi.RESFOLDER + notifications.getIcon())
                     .error(R.mipmap.ic_launcherer_round)
                     .apply(RequestOptions.circleCropTransform())
                     .thumbnail(0.1f)

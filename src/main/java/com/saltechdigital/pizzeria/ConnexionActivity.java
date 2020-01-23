@@ -23,8 +23,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.pizzeria.models.User;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.ConnectionState;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,7 +44,7 @@ public class ConnexionActivity extends AppCompatActivity implements View.OnClick
     private Button mConnectButton;
     private RelativeLayout connectionView;
 
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private String phoneNumber;
 
@@ -104,7 +104,7 @@ public class ConnexionActivity extends AppCompatActivity implements View.OnClick
         phoneNumber = getIntent().getStringExtra(PHONENUMBER);
 
         mConnectButton.setOnClickListener(this);
-        deliverApi = DeliverApiService.createDeliverApi(this);
+        pizzaApi = PizzaApiService.createDeliverApi(this);
 
         Fonty.setFonts(this);
     }
@@ -196,7 +196,7 @@ public class ConnexionActivity extends AppCompatActivity implements View.OnClick
             user.setUsername(email);
             user.setPassword(password);
             compositeDisposable.add(
-                    deliverApi.login(user)
+                    pizzaApi.login(user)
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeOn(Schedulers.io())
                             .subscribeWith(loginObserver())

@@ -18,8 +18,8 @@ import com.marcinorlowski.fonty.Fonty;
 import com.saltechdigital.pizzeria.adapter.NotificationAdapter;
 import com.saltechdigital.pizzeria.models.Notifications;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.ConnectionState;
 
 import java.util.List;
@@ -40,7 +40,7 @@ public class NotificationActivity extends AppCompatActivity {
     private NotificationAdapter adapter;
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
 
     private DisposableSingleObserver<List<Notifications>> getNotifications() {
         return new DisposableSingleObserver<List<Notifications>>() {
@@ -65,7 +65,7 @@ public class NotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
         context = this;
-        deliverApi = DeliverApiService.createDeliverApi(context);
+        pizzaApi = PizzaApiService.createDeliverApi(context);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -103,7 +103,7 @@ public class NotificationActivity extends AppCompatActivity {
     private void databind() {
         if (ConnectionState.isConnected(context)) {
             compositeDisposable.add(
-                    deliverApi.getNotifByClient(new SessionManager(context).getClientID())
+                    pizzaApi.getNotifByClient(new SessionManager(context).getClientID())
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeWith(getNotifications())

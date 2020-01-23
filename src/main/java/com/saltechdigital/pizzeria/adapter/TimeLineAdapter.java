@@ -24,8 +24,8 @@ import com.saltechdigital.pizzeria.models.Livraison;
 import com.saltechdigital.pizzeria.models.Payment;
 import com.saltechdigital.pizzeria.models.Process;
 import com.saltechdigital.pizzeria.storage.SessionManager;
-import com.saltechdigital.pizzeria.tasks.DeliverApi;
-import com.saltechdigital.pizzeria.tasks.DeliverApiService;
+import com.saltechdigital.pizzeria.tasks.PizzaApi;
+import com.saltechdigital.pizzeria.tasks.PizzaApiService;
 import com.saltechdigital.pizzeria.utils.Config;
 
 import java.io.UnsupportedEncodingException;
@@ -45,14 +45,14 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.ViewHo
     private List<Process> processes;
     private Context context;
     private CompositeDisposable compositeDisposable;
-    private DeliverApi deliverApi;
+    private PizzaApi pizzaApi;
     private List<Payment> paymentList;
 
     public TimeLineAdapter(Context ctx, List<Process> processList, Livraison livraison) {
         this.livraison = livraison;
         processes = processList;
         this.context = ctx;
-        deliverApi = DeliverApiService.createDeliverApi(context);
+        pizzaApi = PizzaApiService.createDeliverApi(context);
         notifyDataSetChanged();
         databind();
     }
@@ -76,7 +76,7 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.ViewHo
             compositeDisposable = new CompositeDisposable();
         }
         compositeDisposable.add(
-                deliverApi.getPayment(new SessionManager(context).getClientID())
+                pizzaApi.getPayment(new SessionManager(context).getClientID())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeOn(Schedulers.io())
                         .subscribeWith(getPayment())
@@ -161,7 +161,7 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.ViewHo
                     if (payment.getType().equals("Flooz") || payment.getType().equals("TMoney")) {
                         String url;
                         try {
-                            url = DeliverApi.urlRessource(DeliverApi.PAYGATE_ENDPOINT, Config.PAYGATE_API_KEY, context, livraison, DeliverApi.PAYGATE_PAYMENT_URL);
+                            url = PizzaApi.urlRessource(PizzaApi.PAYGATE_ENDPOINT, Config.PAYGATE_API_KEY, context, livraison, PizzaApi.PAYGATE_PAYMENT_URL);
                             Intent intent = new Intent(context, WebviewInAppActivity.class);
                             intent.putExtra(Config.INTENT_EXTRA_URL, url);
                             context.startActivity(intent);

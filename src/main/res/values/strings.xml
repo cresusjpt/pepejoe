@@ -127,7 +127,7 @@
 
     <string name="add_payment_way">Ajouter un moyen de paiement</string>
     <string name="payment_way_title">Gérer les moyens de paiements</string>
-    <string name="account_type" translatable="false">com.saltechdigital.deliver</string>
+    <string name="account_type" translatable="false">com.saltechdigital.pizzeria</string>
 
     <string name="account_manager_error">Vous avez déjà un compte</string>
     <string name="cvc">CVC</string>
@@ -351,4 +351,5 @@
     <string name="enter_valid_code">Entrer un code valide</string>
     <string name="pizza_croute">Epaisseur de la pizza</string>
     <string name="pizza_taille">Taille de la pizza</string>
+    <string name="error_occured">Une erreur s\'est produite. Vérifiez la connexion internet et réessayez</string>
 </resources>

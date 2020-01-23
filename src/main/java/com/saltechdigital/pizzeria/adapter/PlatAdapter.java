@@ -23,10 +23,8 @@ import com.saltechdigital.pizzeria.CreateLivraisonActivity;
 import com.saltechdigital.pizzeria.R;
 import com.saltechdigital.pizzeria.ViewLivraisonListActivity;
 import com.saltechdigital.pizzeria.models.Plat;
-import com.saltechdigital.pizzeria.storage.SessionManager;
 import com.saltechdigital.pizzeria.tasks.PizzaApi;
 import com.saltechdigital.pizzeria.utils.Config;
-import com.synnapps.carouselview.CarouselView;
 
 import java.util.List;
 
@@ -56,8 +54,7 @@ public class PlatAdapter extends RecyclerView.Adapter<PlatAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Plat plat = platList.get(position);
 
-        holder.mItemView.setBackgroundResource(R.drawable.state_list);
-        //holder.deliverType.setBackgroundResource(R.drawable.state_list);
+        holder.mItemView.setBackgroundResource(R.drawable.state_list);;
         holder.cardv.setBackgroundResource(R.drawable.state_list);
         holder.display(plat);
         setAnimation(holder.mItemView);

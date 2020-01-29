@@ -15,7 +15,6 @@
     <uses-permission
         android:name="android.permission.MANAGE_ACCOUNTS"
         android:maxSdkVersion="22" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -43,10 +42,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcherer_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".WebviewInAppActivity"></activity>
+        <activity
+            android:name=".CommandeActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".ViewLivraisonListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.saltechdigital.pizzeria.ViewLivraisonListActivity" />
+        </activity>
+        <activity android:name=".WebviewInAppActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -127,8 +134,8 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme.ActionBar"
-            android:parentActivityName=".PrincipaleActivity">
+            android:parentActivityName=".PrincipaleActivity"
+            android:theme="@style/AppTheme.ActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.saltechdigital.pizzeria.PrincipaleActivity" />
@@ -206,6 +213,28 @@
             </intent-filter>
         </activity>
         <activity android:name=".IntroActivity" />
+
+
+        <!--<meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter><action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>-->
+
 
         <meta-data
             android:name="com.google.android.gms.version"

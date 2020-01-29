@@ -23,7 +23,7 @@ public interface CategorieDao {
     LiveData<Categorie> getCategorie(int id);
 
     @Query("Select count(*) from categorie")
-    int taille();
+    LiveData<Integer> taille();
 
     @Insert(onConflict = REPLACE)
     long insertCategorie(Categorie categorie);

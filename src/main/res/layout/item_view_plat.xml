@@ -76,6 +76,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:text="@string/pizza_croute"/>
 
             <Spinner
@@ -86,6 +87,7 @@
                 android:entryValues="@array/epaisseur_values"
                 android:spinnerMode="dialog"
                 android:layout_marginTop="5dp"
+                android:prompt="@string/pizza_croute"
                 android:layout_marginStart="12dp"/>
 
             <TextView
@@ -93,6 +95,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:text="@string/pizza_taille"/>
 
             <Spinner
@@ -100,7 +103,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/taille"
+                android:spinnerMode="dialog"
                 android:entryValues="@array/taille_values"
+                android:prompt="@string/pizza_taille"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="12dp"/>
 

@@ -16,9 +16,18 @@ public class Config {
     public static final String STATUT_LIVRAISON_IN_PROGRESS = "PROGRESS";
     public static final String STATUT_LIVRAISON_END = "TERMINATE";
 
+    public static final String STATUT_COMMANDE_CREE = "CREATE";
+    public static final String STATUT_COMMANDE_PAYEE = "PAYEE";
+    public static final String STATUT_COMMANDE_INPROGRESSS = "PROGRESS";
+    public static final String STATUT_COMMANDE_DELIVERY = "LIVRAISON";
+    public static final String STATUT_COMMANDE_END = "TERMINATE";
+    public static final String STATUT_COMMANDE_CANCEL = "CANCEL";
+
     public static final String[] orderProcess = {"Submitted", "Payed", "Deliver", "Collected", "Delivery", "Delivered"};
     public static final int[] orderProcessString = {R.string.order_submitted, R.string.order_payment, R.string.order_deliver, R.string.order_collected, R.string.order_delivery, R.string.order_delivered};
     public static final int[] orderProcessActionString = {R.string.order_submitted, R.string.order_payment_action, R.string.order_deliver_string, R.string.order_collected, R.string.order_delivery_action, R.string.order_delivered_action};
     public static final int[] orderProcessDescription = {R.string.order_submitted_desc, R.string.order_payment_desc, R.string.order_deliver_desc, R.string.order_collected_desc, R.string.order_delivery, R.string.order_delivered};
     public static final int[] orderProcessAction = {0, 1, 1, 0, 1, 1};
+
+
 }

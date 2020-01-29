@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/notif_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card_view:cardPreventCornerOverlap="false"
-    card_view:cardUseCompatPadding="true"
-    card_view:elevation="2dp">
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/po_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -76,4 +73,11 @@
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="?android:attr/listDivider" />
+
+</LinearLayout>

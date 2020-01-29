@@ -24,7 +24,7 @@ public interface PlatDao {
     LiveData<Plat> getPlate(int id);
 
     @Query("Select count(*) from plat")
-    int taille();
+    LiveData<Integer> taille();
 
     @Insert(onConflict = REPLACE)
     long insertPlate(Plat plat);

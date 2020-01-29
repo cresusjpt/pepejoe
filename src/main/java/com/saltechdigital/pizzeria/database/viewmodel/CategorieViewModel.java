@@ -99,10 +99,11 @@ public class CategorieViewModel extends ViewModel {
     }
 
     public int deleteCategories() {
-        return categorieDataSource.deleteCategories();
+        executor.execute(categorieDataSource::deleteCategories);
+        return 1;
     }
 
-    public int taille() {
+    public LiveData<Integer> taille() {
         return categorieDataSource.taille();
     }
 }

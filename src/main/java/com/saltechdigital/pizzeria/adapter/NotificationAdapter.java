@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -21,6 +22,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * @author Jeanpaul Tossou on 10/03/2019.
@@ -54,7 +58,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         Notifications notifications = notificationsList.get(position);
         //set background click ressoure
         holder.display(notifications);
-        setAnimation(holder.mItemView);
+        //setAnimation(holder.mItemView);
     }
 
     private void setAnimation(View toAnimate) {
@@ -65,21 +69,17 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private CardView mItemView;
-        private ImageView notifIcon;
-        private TextView notifTitle;
-        private TextView notifDate;
-        private TextView notifDesc;
+        @BindView(R.id.notif_view) LinearLayout mItemView;
+        @BindView(R.id.notif_icon) ImageView notifIcon;
+        @BindView(R.id.notif_title) TextView notifTitle;
+        @BindView(R.id.notif_date) TextView notifDate;
+        @BindView(R.id.notif_desc) TextView notifDesc;
 
         private Notifications current;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            mItemView = itemView.findViewById(R.id.notif_view);
-            notifIcon = itemView.findViewById(R.id.notif_icon);
-            notifTitle = itemView.findViewById(R.id.notif_title);
-            notifDate = itemView.findViewById(R.id.notif_date);
-            notifDesc = itemView.findViewById(R.id.notif_desc);
+            ButterKnife.bind(this,itemView);
         }
 
         private void showDialog(int title, String message, int addressID) {

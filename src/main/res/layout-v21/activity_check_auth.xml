@@ -37,17 +37,15 @@
             android:layout_margin="16dp"
             android:orientation="vertical">
 
-            <!--<net.rimoto.intlphoneinput.IntlPhoneInput
-                android:id="@+id/phone_number"
+            <!--<com.lamudi.phonefield.PhoneInputLayout
+                android:id="@+id/phone_input_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                app:flagPaddingBottom="4dp"
-                app:flagPaddingEnd="4dp"
-                app:flagPaddingStart="4dp"
-                app:flagPaddingTop="4dp"
-                app:textColor="#000000"
-                app:textSize="14sp" />-->
+                android:layout_height="wrap_content"/>-->
+
+            <com.lamudi.phonefield.PhoneEditText
+                android:id="@+id/edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <ProgressBar
                 android:id="@+id/check_progress"

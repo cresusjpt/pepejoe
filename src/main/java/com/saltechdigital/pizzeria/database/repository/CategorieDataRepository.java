@@ -39,7 +39,7 @@ public class CategorieDataRepository {
         return this.categorieDao.deleteCategories();
     }
 
-    public int taille(){
+    public LiveData<Integer> taille(){
         return this.categorieDao.taille();
     }
 }

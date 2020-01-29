@@ -41,7 +41,7 @@ public class PlatDataRepository {
         return this.platDao.deletePlates();
     }
 
-    public int taille() {
+    public LiveData<Integer> taille() {
         return this.platDao.taille();
     }
 }

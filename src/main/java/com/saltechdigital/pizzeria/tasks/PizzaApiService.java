@@ -49,7 +49,8 @@ public class PizzaApiService {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         final String token = new SessionManager(context).getToken();
         Gson gson = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                //.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                 .registerTypeAdapter(Client.class, new ClientDeserializer())
                 .registerTypeAdapter(User.class, new UserDeserializer())
                 //.registerTypeAdapter(Address.class,new AddressDeserializer())

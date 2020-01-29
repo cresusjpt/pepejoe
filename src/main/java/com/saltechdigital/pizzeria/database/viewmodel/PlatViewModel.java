@@ -104,11 +104,11 @@ public class PlatViewModel extends ViewModel {
         });
     }
 
-    public int deletePlats() {
-        return platDataSource.deletePlates();
+    public void deletePlats() {
+        executor.execute(platDataSource::deletePlates);
     }
 
-    public int taille() {
+    public LiveData<Integer> taille() {
         return platDataSource.taille();
     }
 }

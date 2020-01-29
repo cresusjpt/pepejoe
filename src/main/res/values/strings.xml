@@ -13,9 +13,9 @@
         <item>Géante</item>
     </string-array>
     <string-array name="taille_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
     </string-array>
 
 
@@ -53,6 +53,7 @@
     <string name="title_activity_create_livraison">Nouvelle livraison</string>
     <string name="not_connected">Aucune connexion internet. Veuillez réesayer ultérieurement</string>
     <string name="connection_error">Une erreur s\'est produite. Veuillez réessayer ultérieurement</string>
+    <string name="connection_error_bluff">Vous êtes bien inscrit. Connectez vous ensuite.</string>
     <string name="connection_failed">La connexion à échouée. Veuillez réessayer ultérieurement</string>
     <string name="action_save_livraison">Enregistrer</string>
     <string name="colis_name">Nom du colis</string>
@@ -102,6 +103,7 @@
 
     <string name="menu_my_details"><b>MES DETAILS</b></string>
     <string name="menu_orders">Commandes</string>
+    <string name="menu_cart">Panier</string>
     <string name="menu_saved_address">Adresses Enrégistrées</string>
     <string name="menu_notifications">Notifications</string>
     <string name="logout">Deconnexion</string>
@@ -352,4 +354,14 @@
     <string name="pizza_croute">Epaisseur de la pizza</string>
     <string name="pizza_taille">Taille de la pizza</string>
     <string name="error_occured">Une erreur s\'est produite. Vérifiez la connexion internet et réessayez</string>
+    <string name="add_cart">Ajouter au panier</string>
+
+
+    <string name="facebook_app_id" translatable="false">2727505350697966</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2727505350697966</string>
+
+    <string name="facebook_application_id" translatable="false">2727505350697966</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb2727505350697966</string>
+    <string name="phone_hint">Entrer votre numero de telephone</string>
+
 </resources>

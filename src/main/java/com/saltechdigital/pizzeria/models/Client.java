@@ -1,30 +1,46 @@
 package com.saltechdigital.pizzeria.models;
 
+import androidx.annotation.Nullable;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.jetbrains.annotations.NotNull;
 
+@Entity
 public class Client {
 
-    int id;
+    @PrimaryKey
+    int idClient;
 
     @SerializedName("nom_client")
     private String nomClient;
 
+    public int getIdClient() {
+        return idClient;
+    }
+
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
+    }
+
     @SerializedName("email_client")
+    @Nullable
     private String emailClient;
 
     @SerializedName("tel1_client")
     private String phone1;
 
     @SerializedName("tel2_client")
+    @Nullable
     private String phone2;
 
-
+    @Nullable
     private String adresse;
 
     @SerializedName("photo_client")
-    private String photo;
+    @Nullable private String photo;
 
     @SerializedName("status")
     private boolean statut;

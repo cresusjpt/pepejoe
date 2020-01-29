@@ -5,7 +5,6 @@ import android.accounts.AccountManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,11 +25,17 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.marcinorlowski.fonty.Fonty;
+import com.rowland.cartcounter.view.CartCounterActionView;
 import com.saltechdigital.pizzeria.adapter.ServicesAdapter;
 import com.saltechdigital.pizzeria.database.viewmodel.CategorieViewModel;
+import com.saltechdigital.pizzeria.database.viewmodel.ClientViewModel;
+import com.saltechdigital.pizzeria.database.viewmodel.CommandeViewModel;
+import com.saltechdigital.pizzeria.database.viewmodel.DetailCommandeViewModel;
 import com.saltechdigital.pizzeria.injections.Injection;
 import com.saltechdigital.pizzeria.injections.ViewModelFactory;
 import com.saltechdigital.pizzeria.models.Categorie;
+import com.saltechdigital.pizzeria.models.Client;
+import com.saltechdigital.pizzeria.models.Commande;
 import com.saltechdigital.pizzeria.models.Services;
 import com.saltechdigital.pizzeria.storage.SessionManager;
 import com.saltechdigital.pizzeria.tasks.PizzaApi;
@@ -43,6 +48,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.saltechdigital.pizzeria.ViewLivraisonListActivity.COMMANDE_PARCELABLE;
 
 public class PrincipaleActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,7 +64,14 @@ public class PrincipaleActivity extends AppCompatActivity
     private TextView profileName;
     private TextView profileEmail;
 
+    private CartCounterActionView actionView;
+    private Commande commande;
+    private Client clientMe;
+
     private CategorieViewModel categorieViewModel;
+    private DetailCommandeViewModel detailCommandeViewModel;
+    private CommandeViewModel commandeViewModel;
+    private ClientViewModel clientViewModel;
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
@@ -70,6 +84,7 @@ public class PrincipaleActivity extends AppCompatActivity
         setContentView(R.layout.activity_principale);
         ButterKnife.bind(this);
         configViewModel();
+        clientMe = this.clientViewModel.getBruteClient(new SessionManager(this).getClientID());
 
         setSupportActionBar(toolbar);
         getAllCategorie();
@@ -87,7 +102,11 @@ public class PrincipaleActivity extends AppCompatActivity
     private void configViewModel() {
         ViewModelFactory viewModelFactory = Injection.provideModelFactory(this);
         this.categorieViewModel = ViewModelProviders.of(this, viewModelFactory).get(CategorieViewModel.class);
+        this.detailCommandeViewModel = ViewModelProviders.of(this, viewModelFactory).get(DetailCommandeViewModel.class);
+        this.commandeViewModel = ViewModelProviders.of(this, viewModelFactory).get(CommandeViewModel.class);
+        this.clientViewModel = ViewModelProviders.of(this, viewModelFactory).get(ClientViewModel.class);
         this.categorieViewModel.init(this);
+        getCreateCommande();
     }
 
     private void getAllCategorie() {
@@ -142,13 +161,6 @@ public class PrincipaleActivity extends AppCompatActivity
         menus.setTag("menus");
         ourServices.add(menus);
 
-        Services magic = new Services();
-        magic.setName(getString(R.string.autre));
-        int[] magicImages = {R.drawable.pepejoe};
-        magic.setImages(magicImages);
-        magic.setTag("magic");
-        ourServices.add(magic);
-
         adapter = new ServicesAdapter(this, ourServices);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapter);
@@ -171,13 +183,14 @@ public class PrincipaleActivity extends AppCompatActivity
 
         String photo = new SessionManager(this).getUserPhoto();
         photo = PizzaApi.WEBENDPOINT + photo;
+        if (clientMe.getPhoto() != null){
+            photo = clientMe.getPhoto();
+        }
         Glide.with(PrincipaleActivity.this)
-                //.load(PizzaApi.WEBENDPOINT + "pp_Jean-Paul_TOSSOU.jpg")
                 .load(photo)
                 .apply(RequestOptions.circleCropTransform())
                 .thumbnail(0.1f)
                 .into(profile);
-        Log.d(Config.TAG, "populateView: " + PizzaApi.WEBENDPOINT + photo);
     }
 
     @Override
@@ -197,6 +210,19 @@ public class PrincipaleActivity extends AppCompatActivity
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.action_addcart);
+        actionView = (CartCounterActionView) item.getActionView();
+        actionView.setItemData(menu, item);
+        getTaille();
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    private void getTaille() {
+        this.detailCommandeViewModel.taille().observe(this, this::refreshCart);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -205,8 +231,21 @@ public class PrincipaleActivity extends AppCompatActivity
             startActivity(SettingsActivity.class);
             return true;
         }
+        if (id == R.id.action_addcart) {
+            Intent intent = new Intent(this, CommandeActivity.class);
+            intent.putExtra(COMMANDE_PARCELABLE, commande);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void getCreateCommande() {
+        this.commandeViewModel.getStatutCommande(Config.STATUT_COMMANDE_CREE).observe(this, this::commandeObserver);
+    }
+
+    private void commandeObserver(Commande commande) {
+        this.commande = commande;
     }
 
     @Override
@@ -217,6 +256,11 @@ public class PrincipaleActivity extends AppCompatActivity
         switch (id) {
             case R.id.nav_order:
                 startActivity(OrderActivity.class);
+                break;
+            case R.id.nav_cart:
+                Intent intent = new Intent(this, CommandeActivity.class);
+                intent.putExtra(COMMANDE_PARCELABLE, commande);
+                startActivity(intent);
                 break;
             case R.id.nav_address:
                 startActivity(SavedAddressActivity.class);
@@ -267,5 +311,9 @@ public class PrincipaleActivity extends AppCompatActivity
         Intent intent = new Intent(PrincipaleActivity.this, CheckAuthActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+
+    private void refreshCart(Integer size) {
+        actionView.setCount(size);
     }
 }
